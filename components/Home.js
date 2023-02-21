@@ -1,3 +1,15 @@
+
+import styles from '../styles/Home.module.css';
+import Menu from './Menu';
+
+import Slider  from './homepage/Slider';
+import Tags  from './homepage/Tags';
+import TopOffers  from './homepage/TopOffers';
+import Editorial  from './homepage/Editorial';
+import Banner  from './homepage/Banner';
+import CardsWrapper  from './homepage/CardsWrapper';
+import Card  from './homepage/Card';
+
 // STATES IMPORT
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,20 +21,24 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
+// MUI IMPORTS
 
-import { hideArticle } from '../reducers/hiddenArticles';
 
-import styles from '../styles/Home.module.css';
 
 function Home() {
   return (
-    <div>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-      </main>
-    </div>
+    <>
+     
+        <Menu />
+        <Slider/>
+        <Tags/>
+        <TopOffers/>
+        <Editorial/>
+        <Banner/>
+        <CardsWrapper/>
+        <Card/>
+        
+    </>
   );
 }
 
