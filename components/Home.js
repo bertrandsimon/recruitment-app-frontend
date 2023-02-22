@@ -4,6 +4,7 @@ import Menu from './Menu';
 
 import Slider  from './homepage/Slider';
 import Tags  from './homepage/Tags';
+import TopOffersWrapper from './homepage/TopOffersWrapper';
 import TopOffers  from './homepage/TopOffers';
 import Editorial  from './homepage/Editorial';
 import Banner  from './homepage/Banner';
@@ -31,6 +32,7 @@ function Home() {
      
         <Menu />
         <Slider/>
+        <TopOffersWrapper/>
         <Tags/>
         <TopOffers/>
         <Editorial/>

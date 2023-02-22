@@ -1,4 +1,15 @@
 import '../styles/globals.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#B00620"
+    }
+  }
+});
+
+
 import Head from 'next/head';
 
 import { Provider } from 'react-redux';
@@ -24,17 +35,19 @@ const store = configureStore({
 
 function App({ Component, pageProps }) {
   return (
-    <>
-      <Provider store={store}>
-      <PersistGate persistor={persistor}>
-      <Head>
-        <title>Next.js App poppins</title>
-        
-      </Head>
-      <Component {...pageProps} />
-      </PersistGate>
-      </Provider>
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <Provider store={store}>
+        <PersistGate persistor={persistor}>
+        <Head>
+          <title>Next.js App poppins</title>
+          
+        </Head>
+        <Component {...pageProps} />
+        </PersistGate>
+        </Provider>
+      </>
+    </ThemeProvider>
   );
 }
 

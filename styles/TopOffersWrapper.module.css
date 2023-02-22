@@ -1,0 +1,42 @@
+.title {
+   display: flex;
+   align-items: center;
+   width: 400px;
+   height: 65px;
+   top: 652px;
+   background: #FFFFFF;
+   border-radius: 5px;
+   margin-top: -40px;
+   margin-left: 80px;
+}
+
+.title {
+   
+   padding-left: 30px;
+   padding-top: 10px;
+}
+
+.subtitle1{
+   font-size: 28px;
+   font-weight: 300;
+}
+
+
+.subtitle2{
+   font-size: 28px;
+   font-weight: 500;
+   padding-right: 20px;
+   padding-left: 10px;
+}
+.arrow{
+   font-size: 20px;
+   padding-top: 10px;
+  
+}
+.container{
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   
+   }
+   
