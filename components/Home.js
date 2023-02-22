@@ -34,11 +34,15 @@ function Home() {
         <Slider/>
         <TopOffersWrapper/>
         <Tags/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
         <TopOffers/>
         <Editorial/>
         <Banner/>
         <CardsWrapper/>
-        <Card/>
+        
         
     </div>
   );

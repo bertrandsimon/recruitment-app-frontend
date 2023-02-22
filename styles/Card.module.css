@@ -1,13 +1,35 @@
 .cardWrapper{
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 260px;
     height: 330px;
     max-height: 330px;
     padding: 20px;
     box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    
+    cursor:pointer;
+    transition: all 0.3s ease-out;
    }
 
- 
+   .cardWrapper:hover{
+    background-color: #C60501;
+    box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.3);
+    
+    
+   
+   }
+
+   .other{
+    background: linear-gradient(180deg, #990313 0%, #C50400 50%);
+   }
+
+   .cardWrapper:hover > .txt, .cardWrapper:hover > h5, .cardWrapper:hover > .day > span{
+    
+   color: white;
+   }
+
 .tagWrapper{
 
     display: flex;
@@ -25,7 +47,7 @@
     margin-right: 5px;
     padding: 2px;
    }
-   
+
 .tag2{
     margin-left: 5px;
     width: 54px;
@@ -46,8 +68,15 @@
 }
 
 .bottomWrapper{
-    
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around
    }
+.bottomWrapper > div > span {font-size: 13px; font-weight:200}
+   
 .line{
-    
+    margin-top: 10px;
+    width: 30%;
+    border-top: 1px dashed #B2B2B2;
    }
+.day {color: black;}
