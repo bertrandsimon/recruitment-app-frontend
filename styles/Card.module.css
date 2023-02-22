@@ -1,4 +1,53 @@
-.container{
-    color: red;
+.cardWrapper{
+    
+    width: 260px;
+    height: 330px;
+    max-height: 330px;
+    padding: 20px;
+    box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.1);
+   }
+
+ 
+.tagWrapper{
+
+    display: flex;
+    text-align: center;
+   }
+.tag1{
+    width: 54px;
+    
+    background: #E8E3D9;
+    border: 1px solid #D6D6D6;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    margin-right: 5px;
+    padding: 2px;
    }
    
+.tag2{
+    margin-left: 5px;
+    width: 54px;
+    background: #ffffff;
+    border: 1px solid #D6D6D6;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    margin-right: 5px;
+    padding: 2px;
+   }
+
+.txt{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #7F7F7F;
+}
+
+.bottomWrapper{
+    
+   }
+.line{
+    
+   }
