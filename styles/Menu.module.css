@@ -1,4 +1,39 @@
-.container {
-
+.container{
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1700px;
 }
 
+.menuContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    
+}
+
+.menuContainer > div > h4 {cursor:pointer;}
+
+.ctaWhite {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+
+  height: 30px;
+  background: #FFFFFF;
+  border: 1px solid #B00620;
+  border-radius: 4px;
+  color: #B00620;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.ctaWhite:hover {
+  background: #B00620;
+  /* border: 1px solid white; */
+  color: white;
+ 
+}

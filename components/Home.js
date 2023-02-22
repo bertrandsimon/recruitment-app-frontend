@@ -27,7 +27,7 @@ import { faBookmark, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons
 
 function Home() {
   return (
-    <>
+    <div>
      
         <Menu />
         <Slider/>
@@ -38,7 +38,7 @@ function Home() {
         <CardsWrapper/>
         <Card/>
         
-    </>
+    </div>
   );
 }
 

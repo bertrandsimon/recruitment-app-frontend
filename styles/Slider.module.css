@@ -1,4 +1,12 @@
-.container {
- 
+.container{
+    padding: 40px;
+    width: 92vw;
+    max-width: 1700px;
+    height: 573px;
+    background: url('/images/slider-bg-1.jpg');
+    border-radius: 10px 10px 0px 0px;
+    background-repeat: no-repeat;
+	background-size: cover;
+    background-position: 0px -80px;
 }
 
