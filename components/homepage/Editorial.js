@@ -35,7 +35,7 @@ function Editorial() {
       <div></div>
 
       <div className={styles.rightImage}>
-        <Image src="/images/editorial.jpg" width={330} height={283} className={styles.arrow}/>
+        <Image src="/images/editorial.png" width={330} height={283} className={styles.arrow}/>
       </div>
         
       

@@ -7,7 +7,21 @@ function Banner() {
 
     <div className={styles.container}>
 
-        <h1 className={styles.title}>Banner</h1>
+        <div className={styles.argumentsWrapper}>
+
+          <div className={styles.argument}>
+            <span>55 années d’expérience</span>
+          </div>
+
+          <div className={styles.argument}>
+            <span>1er groupement d’indépendants</span>
+          </div>
+
+          <div className={styles.argument}>
+            <span>200 sociétés indépendantes</span>
+          </div>
+
+        </div>
       
     </div>
 

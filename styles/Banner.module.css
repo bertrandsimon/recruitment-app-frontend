@@ -1,4 +1,35 @@
 .container{
-    color: red;
+    background: url('/images/banner.jpg');
+    border-radius: 10px 10px 0px 0px;
+    background-repeat: no-repeat;
+	background-size: cover;
+    height: 375px;
+    width: 100%;
+    max-width: 1710px;
+    margin-top: -120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
    }
    
+   .argumentsWrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin-right: 200px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    
+   }
+
+   .argument {
+    width: 226px;
+    height: 144px;
+    border: 2px solid #FFFFFF;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   }
