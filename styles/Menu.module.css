@@ -18,10 +18,9 @@
 .menuContainer > div > h4 {cursor:pointer;}
 
 .ctaWhite {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-
+  display: flex;
+  align-items: center;
+  padding: 16px;
   height: 30px;
   background: #FFFFFF;
   border: 1px solid #B00620;
@@ -33,7 +32,5 @@
 
 .ctaWhite:hover {
   background: #B00620;
-  /* border: 1px solid white; */
   color: white;
- 
 }

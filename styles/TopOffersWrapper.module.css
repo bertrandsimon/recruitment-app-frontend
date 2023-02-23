@@ -1,10 +1,16 @@
 .container{
-   margin-top: 40px;
+   padding-top: 80px;
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
    max-width: 1700px;
+   height: 608px;
    width: 100%;
+   background: url('/images/bg-offer.jpg');
+   background-repeat: no-repeat;
+   margin-top: -80px;
+   background-position: top right;
+   z-index: 1;
 }
 
 .slideNav{

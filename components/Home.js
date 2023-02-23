@@ -10,6 +10,7 @@ import Editorial  from './homepage/Editorial';
 import Banner  from './homepage/Banner';
 import CardsWrapper  from './homepage/CardsWrapper';
 import Card  from './homepage/Card';
+import EditorialWrapper from './homepage/EditorialWrapper';
 
 // STATES IMPORT
 import { useEffect, useState } from 'react';
@@ -31,14 +32,27 @@ function Home() {
     <div>
      
         <Menu />
+      
+
+        <div style={{ zIndex: 2 }} className={styles.sliderContainer}>
         <Slider/>
+        </div>
+
+
         <div className={styles.title2}>
             <span className={styles.subtitle1}>Les offres</span> <span className={styles.subtitle2}> du moment</span><Image src="/images/arrow2.jpg" width={19} height={27} className={styles.arrow}/>
         </div>
-        <TopOffersWrapper/>
+        
+        <div style={{ zIndex: 1 }} className={styles.topOffersWrapper}>
+          <TopOffersWrapper/>
+        </div>
+
+        <div style={{ zIndex: 3 }} className={styles.editorialWrapper}>
+          <EditorialWrapper/>
+        </div>
     
-      
-        <Editorial/>
+        
+        <br /><br /><br /><br />
         <Banner/>
         <CardsWrapper/>
         

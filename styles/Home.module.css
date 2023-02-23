@@ -59,3 +59,15 @@
   margin-top: 5px;
  
 }
+
+.topOffersWrapper {
+  position: relative;
+}
+
+.sliderContainer {
+  position: relative;
+}
+
+.editorialWrapper {
+  position: relative;
+}

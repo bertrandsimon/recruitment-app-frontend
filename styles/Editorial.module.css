@@ -1,4 +1,66 @@
 .container{
-    color: red;
+    display: flex;
+    justify-content: space-around;
+    width: 780px;
+    height: 283px;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
    }
    
+   .leftPanel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+   }
+
+   .subtitle{
+    color: #7F7F7F;
+    font-weight: 100;
+    
+   }
+
+   .title {
+    font-weight: 400;
+   }
+
+   .authorWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 20px;
+   }
+
+   .avatar{
+    padding-right: 20px;
+    margin-top: 5px;
+   }
+
+   .rightImage{
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+   }
+
+
+   .ctaWhite {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #B00620;
+    border-radius: 4px;
+    color: #B00620;
+    vertical-align: middle;
+    cursor: pointer;
+    width: 65px;
+  }
+  
+  .ctaWhite:hover {
+    background: #B00620;
+    color: white;
+  }
