@@ -8,7 +8,7 @@
     padding: 20px;
     box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.1);
     background-color: white;
-    
+    margin: 20px;
     cursor:pointer;
     transition: all 0.3s ease-out;
    }
