@@ -134,9 +134,9 @@ const jobs = [
 ];
 
 const shops = [
-  { label: 'Magasin 1', year: 1994 },
-  { label: 'Magasin 2', year: 1972 },
-  { label: 'Magasin 3', year: 1974 },
+  { label: 'Pedro shop - 13 200', year: 1994 },
+  { label: 'Magasin Marseille - 13600', year: 1972 },
+  { label: 'MILLANCOURT ET NICOLAS - 78260', year: 1974 },
   { label: 'Magasin 4', year: 2008 },
   { label: 'Magasin 5', year: 1957 },
   { label: "Magasin 6", year: 1993 },

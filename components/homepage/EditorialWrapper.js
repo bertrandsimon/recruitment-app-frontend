@@ -1,5 +1,7 @@
 import styles from '../../styles/EditorialWrapper.module.css';
 import Editorial from './Editorial';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 function EditorialWrapper() {
 
@@ -18,7 +20,12 @@ function EditorialWrapper() {
           </span>
         </div>
        
+
         <div className={styles.editorialWrapper}>
+          <div className={styles.slideNav}>
+            <div className={styles.arrow}><FontAwesomeIcon icon={faArrowLeft}  /></div>
+            <div className={styles.arrow}><FontAwesomeIcon icon={faArrowRight} /></div>
+           </div>
           <Editorial />
         </div>
        

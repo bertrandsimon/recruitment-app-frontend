@@ -52,10 +52,10 @@ function Home() {
         </div>
     
         
-        <br /><br /><br /><br />
+        
         <Banner/>
         <CardsWrapper/>
-        
+        <br /><br /><br /><br />
         
     </div>
   );

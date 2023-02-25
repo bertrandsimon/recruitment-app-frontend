@@ -5,6 +5,8 @@ import Tags from './Tags';
 import TopOffers from './TopOffers';
 import Card from './Card';
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 function TopOffersWrapper() {
 
@@ -21,12 +23,10 @@ function TopOffersWrapper() {
   return (
     <div className={styles.container}>
       <div className={styles.slideNav}>
-        <span className={styles.prevButton} onClick={prevSlide}>
-         next
-        </span>
-        <span className={styles.nextButton} onClick={nextSlide}>
-          prev
-        </span>
+      
+      <div className={styles.arrow}><FontAwesomeIcon icon={faArrowLeft}  onClick={prevSlide}/></div>
+      <div className={styles.arrow}><FontAwesomeIcon icon={faArrowRight}  onClick={nextSlide}/></div>
+  
       </div>
 
 
