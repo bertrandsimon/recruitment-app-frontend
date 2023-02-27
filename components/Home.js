@@ -30,6 +30,7 @@ import { faBookmark, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons
 
 
 function Home() {
+ 
   return (
     <div>
      
@@ -66,6 +67,8 @@ function Home() {
 
         <br /><br /><br /><br />
         
+       
+      
         
     </div>
   );

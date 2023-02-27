@@ -1,10 +1,31 @@
 import styles from '../styles/Menu.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import JobCard from './homepage/JobCard';
+
+// STATES IMPORT
+import { useState } from 'react';
+
+// MUI IMPORTS
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
 
 
 function Menu() {
 
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState('one');
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
 
@@ -19,8 +40,32 @@ function Menu() {
           <div> | </div>
           <div><h4>Contact</h4></div>
           <div>  </div>
-          <div className={styles.ctaWhite}><span>Bouton</span></div>
+          <div className={styles.ctaWhite} onClick={handleClickOpen}><span>Connexion</span></div>
         </div>
+
+
+        
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        
+        <DialogContent>
+
+          
+
+        <div>
+        <JobCard/>
+        </div>
+         
+        
+           
+         
+        </DialogContent>
+  
+      </Dialog>
       
     </div>
 
