@@ -11,6 +11,8 @@ import Banner  from './homepage/Banner';
 import CardsWrapper  from './homepage/CardsWrapper';
 import Card  from './homepage/Card';
 import EditorialWrapper from './homepage/EditorialWrapper';
+import JobCard from './homepage/JobCard';
+import JobCardsWrapper from './homepage/JobCardsWrapper';
 
 // STATES IMPORT
 import { useEffect, useState } from 'react';
@@ -54,8 +56,16 @@ function Home() {
         
         
         <Banner/>
-        <CardsWrapper/>
+
+        <div style={{ zIndex: 4 }} className={styles.jobCardsWrapper}>
+          <JobCardsWrapper/>
+        </div>
+        
+        
+       
+
         <br /><br /><br /><br />
+        
         
     </div>
   );

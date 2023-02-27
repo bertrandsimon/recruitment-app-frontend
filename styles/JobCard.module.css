@@ -1,0 +1,79 @@
+.JobCardContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+    width: 320px;
+    min-height: 370px;
+    max-height: 370px;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    padding: 24px;
+    cursor: pointer;
+    padding-top: 0px;
+    padding-bottom: 10px;
+}
+
+.headerWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subWrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    
+}
+
+.titleWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 26px;
+    height: 80px;
+}
+
+.line{
+    border-bottom: 1px solid #E8E8E8;
+    width: 140px;
+}
+
+.titleWrapper > div > span{
+    color:#870300;
+    font-weight: 300;
+}
+
+.tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    background: #E8E3D9;
+    border: 1px solid #D6D6D6;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    margin-right: 5px;
+    padding: 2px;
+    font-weight: 300;
+}
+
+.textWrapper{
+    display: flex;
+    color: #7F7F7F;
+    font-weight: 300;
+}
+
+.dateFrom{
+    display: flex;
+    font-weight: 300;
+    justify-content: flex-end;
+    font-size: 12px;
+}
+
+.heart{color: #C5B1A5;}

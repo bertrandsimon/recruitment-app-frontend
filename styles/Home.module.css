@@ -71,3 +71,8 @@
 .editorialWrapper {
   position: relative;
 }
+
+.jobCardsWrapper {
+  position: relative;
+  margin-top: -40px;
+}
