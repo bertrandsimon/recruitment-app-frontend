@@ -14,17 +14,12 @@ import DialogContent from '@mui/material/DialogContent';
 function Menu() {
 
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('one');
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
   };
 
   return (

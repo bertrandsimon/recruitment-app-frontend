@@ -3,17 +3,26 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
 
+function JobCard(props) {
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-function JobCard() {
-
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
 
     <div className={styles.JobCardContainer}>
       
       <div className={styles.headerWrapper}>
-        <div><h5>Job title</h5></div>
+        <div onClick={handleClickOpen}><h5>{props.title}</h5></div>
         <div className={styles.heart}><FontAwesomeIcon icon={faHeart} className="far" /></div>
       </div>
 
@@ -27,13 +36,29 @@ function JobCard() {
       </div>
 
       <div className={styles.textWrapper}>
-        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam maiores omnis autem distinctio id et laudantium voluptates dicta cumque...</span>
+        <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
       </div>
 
       <div>
-        <span className={styles.dateFrom}>posté : 1 jour</span>
+        <span className={styles.dateFrom}>{props.date}</span>
       </div>
 
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        
+        <DialogContent>
+
+        <div>
+        <h1>TEST</h1>
+        </div>
+
+        </DialogContent>
+  
+      </Dialog>
    
     </div>
 
