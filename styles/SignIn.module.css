@@ -1,0 +1,15 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.title {
+  font-family: "Mont";
+  font-size: 22px;
+  margin: 20px;
+}
+
