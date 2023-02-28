@@ -9,21 +9,14 @@ import DialogContent from '@mui/material/DialogContent';
 function JobCardsWrapper() {
 
   const [jobsData, setJobsData] = useState([]);
-  const [open, setOpen] = useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   useEffect(() => {
     fetch('http://localhost:3000/jobs')
       .then(response => response.json())
       .then(data => {
         
-        setJobsData(data.jobs);
+        setJobsData(data.allJobs);
         //console.log('jobsData :', jobsData)
       });
   }, []);
@@ -37,23 +30,7 @@ function JobCardsWrapper() {
     <div className={styles.container}>
       
       {jobCard}
-      <JobCard onClick={handleClickOpen}/>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        
-        <DialogContent>
-
-        <div>
-        <h1>TEST</h1>
-        </div>
-
-        </DialogContent>
-  
-      </Dialog>
+     
       
     </div>
 

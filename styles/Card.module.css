@@ -74,9 +74,141 @@
    }
 .bottomWrapper > div > span {font-size: 13px; font-weight:200}
    
-.line{
+.lineDashed{
     margin-top: 10px;
     width: 30%;
     border-top: 1px dashed #B2B2B2;
    }
 .day {color: black;}
+
+.jobCardContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    width: 320px;
+    min-height: 370px;
+    max-height: 370px;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    padding: 24px;
+  
+    padding-top: 0px;
+    padding-bottom: 10px;
+}
+
+.headerWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.subWrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    
+    
+}
+
+.titleWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 26px;
+    height: 80px;
+    
+}
+
+.line{
+    border-bottom: 1px solid #E8E8E8;
+    width: 140px;
+}
+
+
+.titleWrapper > div > span{
+    color:#870300;
+    font-weight: 300;
+    
+}
+
+.tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    background: #E8E3D9;
+    border: 1px solid #D6D6D6;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    margin-right: 5px;
+    padding: 2px;
+    font-weight: 300;
+}
+
+.textWrapper{
+    display: flex;
+    color: #7F7F7F;
+    font-weight: 300;
+    padding-top: 20px;
+    flex-direction: column;
+}
+
+.dateFrom{
+    display: flex;
+    font-weight: 300;
+    justify-content: flex-end;
+    font-size: 12px;
+}
+
+.heart{color: #C5B1A5;}
+
+.jobCardContainerModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 500px;
+    background: #FFFFFF;
+   
+    border-radius: 6px;
+    padding: 24px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    margin: 10px;
+    margin-bottom:20px
+}
+
+.lineModal{
+    border-bottom: 1px solid #E8E8E8;
+    width: 450px;
+    margin-top: 10px;
+}
+
+.textTitle{ color:black !important; font-weight:500;}
+
+.ctaWhite {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #B00620;
+    border-radius: 4px;
+    color: #B00620;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 12px;
+    width: 98px;
+  }
+  
+  .ctaWhite:hover {
+    background: #B00620;
+    color: white;
+    
+  }

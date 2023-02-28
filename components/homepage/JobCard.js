@@ -7,10 +7,12 @@ import { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 
+
 function JobCard(props) {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
+    
   };
 
   const handleClose = () => {
@@ -19,7 +21,7 @@ function JobCard(props) {
 
   return (
 
-    <div className={styles.JobCardContainer}>
+    <div className={styles.jobCardContainer}>
       
       <div className={styles.headerWrapper}>
         <div onClick={handleClickOpen}><h5>{props.title}</h5></div>
@@ -52,8 +54,52 @@ function JobCard(props) {
         
         <DialogContent>
 
+        <div className={styles.jobCardContainerModal}>
+          <div className={styles.headerWrapper}>
+            <div><h5>{props.title}</h5></div>
+            <div className={styles.heart}><FontAwesomeIcon icon={faHeart} className="far" /></div>
+          </div>
+
+        <div className={styles.subWrapper}>
+          <div><Image src="/images/job-card-img.jpg" width={75} height={75} className={styles.arrow}/></div>
+          <div className={styles.titleWrapper}>
+            <div><span>Subtitle CP</span></div>
+            <div className={styles.line}> </div>
+            <div className={styles.tag}>CDI</div>
+          </div>
+        </div>
+
+        <div className={styles.textWrapper}>
+          <span className={styles.textTitle}>Description</span>
+          <div className={styles.lineModal}> </div>
+          <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
+        </div>
+
+        <div className={styles.textWrapper}>
+          <span className={styles.textTitle}>Missions</span>
+          <div className={styles.lineModal}> </div>
+          <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
+        </div>
+
+        <div className={styles.textWrapper}>
+          <span className={styles.textTitle}>Profil</span>
+          <div className={styles.lineModal}> </div>
+          <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
+        </div>
+
+        <div className={styles.textWrapper}>
+          <span className={styles.textTitle}>Modalités de contrat</span>
+          <div className={styles.lineModal}> </div>
+          <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
+        </div>
+
+        <div className={styles.ctaWhite}><span>Je postule</span></div>
+
+
         <div>
-        <h1>TEST</h1>
+          
+          <span className={styles.dateFrom}>{props.date}</span>
+        </div>
         </div>
 
         </DialogContent>

@@ -55,9 +55,7 @@ function Menu() {
         <JobCard/>
         </div>
          
-        
-           
-         
+
         </DialogContent>
   
       </Dialog>
