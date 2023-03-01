@@ -29,7 +29,7 @@ function JobCard(props) {
       </div>
 
       <div className={styles.subWrapper}>
-        <div><Image src="/images/job-card-img.jpg" width={75} height={75} className={styles.arrow}/></div>
+        <div><Image src={props.jobImage} width={100} height={100} style={{ borderRadius: '6px' }}/></div>
         <div className={styles.titleWrapper}>
           <div><span>Subtitle CP</span></div>
           <div className={styles.line}> </div>
@@ -39,6 +39,7 @@ function JobCard(props) {
 
       <div className={styles.textWrapper}>
         <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
+        
       </div>
 
       <div>
@@ -61,7 +62,8 @@ function JobCard(props) {
           </div>
 
         <div className={styles.subWrapper}>
-          <div><Image src="/images/job-card-img.jpg" width={75} height={75} className={styles.arrow}/></div>
+          <div><Image src={props.jobImage} width={75} height={75} style={{ borderRadius: '6px' }}/></div>
+          
           <div className={styles.titleWrapper}>
             <div><span>Subtitle CP</span></div>
             <div className={styles.line}> </div>
@@ -73,6 +75,7 @@ function JobCard(props) {
           <span className={styles.textTitle}>Description</span>
           <div className={styles.lineModal}> </div>
           <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
+          
         </div>
 
         <div className={styles.textWrapper}>
