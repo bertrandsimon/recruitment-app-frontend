@@ -23,6 +23,8 @@ function TopOffersWrapper() {
       });
   }, []);
 
+  
+
   const prevSlide = () => {
     setSlideIndex(Math.max(slideIndex - 1, 0));
   };

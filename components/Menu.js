@@ -29,8 +29,8 @@ function Menu() {
   const userLoggedStatus = useSelector((state) => state.user.userConnected)
   const username = useSelector((state) => state.user.name)
 
-  console.log('userLoggedStatus', userLoggedStatus)
-  console.log('username', username)
+  //console.log('userLoggedStatus', userLoggedStatus)
+  //console.log('username', username)
   
   const dispatch = useDispatch();
 
@@ -44,6 +44,10 @@ function Menu() {
     setOpen(false);
   };
 
+  const handleCloseModal = () => {
+    setOpen(false);
+  };
+
   const handleLogout = () => {
     dispatch(loggedStatus())
     dispatch(loggedName(''))
@@ -51,6 +55,8 @@ function Menu() {
 
   const handleSigninChoice = () => {setLoginChoice('signin')};
   const handleSignUpChoice = () => {setLoginChoice('signup')};
+
+
 
   //console.log(loginChoice)
 
@@ -101,7 +107,7 @@ function Menu() {
           </div>
           <div className={styles.line}></div>
          
-          {loginChoice === 'signin' && <Signin />}
+          {loginChoice === 'signin' && <Signin handleCloseModal={handleCloseModal}/>}
           {loginChoice === 'signup' && <Signup />}
 
         

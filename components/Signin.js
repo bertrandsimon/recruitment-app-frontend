@@ -16,7 +16,7 @@ import TextField from '@mui/material/TextField';
 // STYLES IMPORT
 import styles from '../styles/Signin.module.css';
 
-function Signin() {
+function Signin(props) {
  
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -34,6 +34,7 @@ function Signin() {
         console.log(data)
         dispatch(loggedStatus())
         dispatch(loggedName(data.name))
+        props.handleCloseModal();
         //data (({ email: data.email }));
       });
   };
