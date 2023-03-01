@@ -5,6 +5,10 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 
+// REDUCERS
+import { loggedStatus } from '../reducers/user';
+import { loggedName } from '../reducers/user';
+
 // MUI IMPORTS
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -28,12 +32,14 @@ function Signin() {
     }).then(response => response.json())
       .then(data => {
         console.log(data)
+        dispatch(loggedStatus())
+        dispatch(loggedName(data.name))
         //data (({ email: data.email }));
       });
   };
 
-  console.log(email)
-  console.log(password)
+  //console.log(email)
+  //console.log(password)
   
 
 
