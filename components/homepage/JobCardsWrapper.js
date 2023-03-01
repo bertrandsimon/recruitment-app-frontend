@@ -17,7 +17,7 @@ function JobCardsWrapper() {
       .then(data => {
         
         setJobsData(data.allJobs);
-        //console.log('jobsData :', jobsData)
+        console.log('jobsData :', jobsData)
       });
   }, []);
 

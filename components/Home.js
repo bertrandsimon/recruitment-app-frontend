@@ -14,6 +14,7 @@ import EditorialWrapper from './homepage/EditorialWrapper';
 import JobCard from './homepage/JobCard';
 import JobCardsWrapper from './homepage/JobCardsWrapper';
 
+
 // STATES IMPORT
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
