@@ -5,6 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import Badge from '@mui/material/Badge';
+import { useEffect, useState } from 'react';
 
 
 const style = {
@@ -16,31 +17,39 @@ const style = {
 
 function Tags() {
 
+  const [allTags, setAllTags] = useState([])
+
+  useEffect (() => {countJobs()},[])
+    
+    const countJobs = () => {
+      let allTag = []
+      fetch('http://localhost:3000/jobs/byTypes', {
+      }).then(response => response.json())
+        .then(data => {
+          
+          //console.log(typeof data.jobsByType)
+          allTag = data.jobsByType.map((data,i) => {
+            return (
+            <div key={i}>
+              <ListItem button>
+              <ListItemText primary={data.key} /><Badge badgeContent={data.nb} color="primary"></Badge>
+              </ListItem>
+              <Divider />
+            </div>
+          )})
+          setAllTags(allTag)
+        });
+    };
+
 
   return (
 
     <div className={styles.container}>
 
-<List sx={style} component="nav" aria-label="mailbox folders">
-      <ListItem button>
-        <ListItemText primary="Manutention" /><Badge badgeContent={4} color="primary"></Badge>
-      </ListItem>
-      <Divider />
-      <ListItem button>
-        <ListItemText primary="Conseiller" /><Badge badgeContent={12} color="primary"></Badge>
-      </ListItem>
-      <Divider />
-      <ListItem button>
-        <ListItemText primary="Découpe" /><Badge badgeContent={4} color="primary"></Badge>
-      </ListItem>
-      <Divider />
-      <ListItem button>
-        <ListItemText primary="Découpe" /><Badge badgeContent={123} color="primary"></Badge>
-      </ListItem>
-      <Divider />
-      <ListItem button>
-        <ListItemText primary="Caisse" /><Badge badgeContent={4} color="primary"></Badge>
-      </ListItem>
+    <List sx={style} component="nav" aria-label="mailbox folders">
+      
+      {allTags}
+    
     </List>
     
         

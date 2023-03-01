@@ -3,16 +3,12 @@ import styles from '../styles/Home.module.css';
 import Menu from './Menu';
 
 import Slider  from './homepage/Slider';
-import Tags  from './homepage/Tags';
 import TopOffersWrapper from './homepage/TopOffersWrapper';
-import TopOffers  from './homepage/TopOffers';
 import Editorial  from './homepage/Editorial';
 import Banner  from './homepage/Banner';
-import CardsWrapper  from './homepage/CardsWrapper';
-import Card  from './homepage/Card';
 import EditorialWrapper from './homepage/EditorialWrapper';
-import JobCard from './homepage/JobCard';
 import JobCardsWrapper from './homepage/JobCardsWrapper';
+
 
 // STATES IMPORT
 import { useEffect, useState } from 'react';
@@ -26,10 +22,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 // MUI IMPORTS
-
+import TextField from '@mui/material/TextField';
 
 
 function Home() {
+
+  const [editoTitle, setEditoTitle] = useState('');
+  const [editoTxt, setEditoTxt] = useState('');
+
+  useEffect(() => {
+    fetch('http://localhost:3000/edito')
+      .then(response => response.json())
+      .then(data => {
+        setEditoTitle(data.title)
+        setEditoTxt(data.text)
+        console.log(data.title)
+        console.log(data.text)
+      });
+  }, []);
  
   return (
     <div>
@@ -51,7 +61,7 @@ function Home() {
         </div>
 
         <div style={{ zIndex: 3 }} className={styles.editorialWrapper}>
-          <EditorialWrapper/>
+          <EditorialWrapper editoTitle={editoTitle} editoTxt={editoTxt}/>
         </div>
     
         
@@ -67,8 +77,7 @@ function Home() {
 
         <br /><br /><br /><br />
         
-       
-      
+  
         
     </div>
   );

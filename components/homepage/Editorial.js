@@ -1,7 +1,7 @@
 import styles from '../../styles/Editorial.module.css';
 import Image from 'next/image';
 
-function Editorial() {
+function Editorial(props) {
 
 
   return (
@@ -12,7 +12,7 @@ function Editorial() {
 
         <span className={styles.subtitle}>subtitle</span>
         <div className={styles.title}>
-          <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+          <h2>{props.editoTitle}</h2>
         </div>
 
         <div className={styles.authorWrapper}>
@@ -22,7 +22,7 @@ function Editorial() {
           </div>
 
           <div>
-            <h5>H5 headline</h5>
+            <h5>{props.editoTxt}</h5>
             <span className={styles.subtitle}>subtitle</span>
           </div>
 

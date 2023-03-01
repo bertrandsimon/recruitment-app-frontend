@@ -3,7 +3,7 @@ import Editorial from './Editorial';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-function EditorialWrapper() {
+function EditorialWrapper(props) {
 
 
   return (
@@ -26,7 +26,7 @@ function EditorialWrapper() {
             <div className={styles.arrow}><FontAwesomeIcon icon={faArrowLeft}  /></div>
             <div className={styles.arrow}><FontAwesomeIcon icon={faArrowRight} /></div>
            </div>
-          <Editorial />
+          <Editorial editoTitle={props.editoTitle} editoTxt={props.editoTxt}/>
         </div>
        
       
