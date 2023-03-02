@@ -25,6 +25,9 @@ import { faBookmark, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons
 import TextField from '@mui/material/TextField';
 
 
+import BusinessCard from './homepage/BusinessCard';
+
+
 function Home() {
 
   const [editoTitle, setEditoTitle] = useState('');
@@ -72,13 +75,14 @@ function Home() {
           <JobCardsWrapper/>
         </div>
         
-        
+       
        
 
         <br /><br /><br /><br />
-        
-  
-        
+
+       
+   
+         <BusinessCard />
     </div>
   );
 }
