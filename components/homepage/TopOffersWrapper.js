@@ -21,10 +21,16 @@ function TopOffersWrapper() {
     fetch('http://localhost:3000/jobs')
       .then(response => response.json())
       .then(data => {
-        const filteredDatas = data.topOffers.filter(data => data.jobType.typeName === 'Manutention');
-        setTopOfferssData(filteredDatas);
+        if(jobTagSelected != 'allTags') {
+          const filteredDatas = data.topOffers.filter(data => data.jobType.typeName === jobTagSelected);
+          setTopOfferssData(filteredDatas);
+        }
+        else {
+          const filteredDatas = data.topOffers;
+          setTopOfferssData(filteredDatas);
+        }
       });
-  }, []);
+  }, [jobTagSelected]);
 
 
   const prevSlide = () => {

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
 	jobs: 0,
 	searchedJobName: '',
-	tagSelected: '',
+	tagSelected: 'Manutention',
 };
 
 export const jobs = createSlice({

@@ -51,25 +51,18 @@ function Tags() {
         });
     };
 
-    // useEffect(() => {
-    //   fetch('http://localhost:3000/jobs/byTypes')
-    //     .then(response => response.json())
-    //     .then(data => {
-    //       setAllTags(data.jobsByType);
-    //     });
-    // }, []);
-
-    
-
-
-
-
+  
   return (
 
     <div className={styles.container}>
 
-    <List sx={style} component="nav" aria-label="mailbox folders">
-      
+    <List sx={style} component="nav">
+        <div key={'allTags'} >
+              <ListItem button onClick={() => handleSubmit('allTags')}>
+              <ListItemText primary={'Toutes les offres'} />
+              </ListItem>
+              <Divider />
+      </div>
       {allTags}
     
     </List>
