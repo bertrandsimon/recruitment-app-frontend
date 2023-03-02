@@ -6,8 +6,7 @@ import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 
 // REDUCERS
-import { loggedStatus } from '../reducers/user';
-import { loggedName } from '../reducers/user';
+import { loggedName, loggedToken, loggedStatus } from '../reducers/user';
 
 // MUI IMPORTS
 import Button from '@mui/material/Button';
@@ -34,6 +33,8 @@ function Signin(props) {
         console.log(data)
         dispatch(loggedStatus())
         dispatch(loggedName(data.name))
+        dispatch(loggedToken(data.token))
+      
         props.handleCloseModal();
 
       });

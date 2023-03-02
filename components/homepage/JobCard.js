@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -17,6 +18,23 @@ function JobCard(props) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const token = useSelector((state) => state.user.token);
+  //console.log('token is =', token)
+  const handleApply = (token, id) => {
+    fetch('http://localhost:3000/jobs/applied', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token, id }),
+    }).then(response => response.json())
+      .then(data => {
+        console.log(data)
+        handleClose();
+
+      });
+    //console.log('clicked token is =', token)
+    //console.log('clicked job id is =', idJob)
   };
 
   return (
@@ -96,7 +114,7 @@ function JobCard(props) {
           <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
         </div>
 
-        <div className={styles.ctaWhite}><span>Je postule</span></div>
+        <div className={styles.ctaWhite} onClick={() => handleApply(token, props._id)}><span>Je postule</span></div>
 
 
         <div>

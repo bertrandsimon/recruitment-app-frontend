@@ -15,6 +15,9 @@ function TopOffersWrapper() {
   const [slideIndex, setSlideIndex] = useState(0);
   
   const jobTagSelected = useSelector((state) => state.jobs.tagSelected);
+  
+
+
 
 
   useEffect(() => {
