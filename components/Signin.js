@@ -35,15 +35,11 @@ function Signin(props) {
         dispatch(loggedStatus())
         dispatch(loggedName(data.name))
         props.handleCloseModal();
-        //data (({ email: data.email }));
+
       });
   };
 
-  //console.log(email)
-  //console.log(password)
   
-
-
   return (
     <div className={styles.container}>
 

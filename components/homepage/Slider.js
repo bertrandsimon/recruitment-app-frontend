@@ -2,34 +2,51 @@ import styles from '../../styles/Slider.module.css';
 import { TextField } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { searchJobSelected } from '../../reducers/jobs';
+import { loggedName } from '../../reducers/user';
+
+
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '@mui/material/Button';
 
+
+
 function Slider() {
-
-  const [jobTypes, setJobTypes] = useState([])
-  const [zipCodes, setZipCodes] = useState([])
-
-  const jobs = [
-    { label: 'Manutention', year: 1994 },
-    { label: 'Employé', year: 1972 },
-    { label: 'Caisse', year: 1974 },
-    { label: 'Exemple', year: 2008 },
-    { label: 'Exemple', year: 1957 },
-    { label: "Exemple", year: 1993 },
-  ];
   
-  const shops = [
-    { label: 'Pedro shop - 13 200', year: 1994 },
-    { label: 'Magasin Marseille - 13600', year: 1972 },
-    { label: 'MILLANCOURT ET NICOLAS - 78260', year: 1974 },
-    { label: 'Magasin 4', year: 2008 },
-    { label: 'Magasin 5', year: 1957 },
-    { label: "Magasin 6", year: 1993 },
-  ];
+  
+  const [jobNames, setJobNames] = useState([])
+  const [storesNames, setStoresNames] = useState([])
+  const [jobNameSelected, setJobNameSelected] = useState('')
 
+  const dispatch = useDispatch();
+
+  const handleSubmit = () => {
+    dispatch(searchJobSelected(jobNameSelected))
+    const targetComponent = document.getElementById('scrollTo');
+    const targetOffset = targetComponent.offsetTop + 1200;
+    window.scrollTo({
+      top: targetOffset + 400,
+      behavior: 'smooth'
+    });
+
+  };
+
+  const jobSelectedInReducer = useSelector((state) => state.jobs.searchedJobName);
+ 
+
+  useEffect(() => {
+    fetch('http://localhost:3000/jobs/inputData')
+      .then(response => response.json())
+      .then(data => {
+        setJobNames(data.postes);
+        setStoresNames(data.stores);
+      });
+  }, []);
+
+  
+  
   const jobsCount = useSelector((state) => state.jobs.jobs);
 
   return (
@@ -44,7 +61,7 @@ function Slider() {
                 <Autocomplete
                 disablePortal
                 id="combo-box-demo"
-                options={jobs}
+                options={jobNames}
                 sx={{
                   width: 250,
                   "& .MuiInputBase-root": {
@@ -78,16 +95,19 @@ function Slider() {
                     }
                   }
                 }}
-                renderInput={(params) => <TextField {...params} label="Poste" 
-            
+                renderInput={(params) => <TextField 
+                  {...params} 
+                  label="Poste" 
+                 
                 />}
+                onChange={(event, value) => setJobNameSelected(value)}
                 />
               </div>
               <div>
                 <Autocomplete
                 disablePortal
                 id="combo-box-demo"
-                options={shops}
+                options={storesNames}
                 sx={{
                   width: 250,
                   "& .MuiInputBase-root": {
@@ -122,7 +142,7 @@ function Slider() {
                 />
               </div>
               <div>
-              <Button sx={{ height: '99%' }} variant="contained">OK</Button>
+              <Button sx={{ height: '99%' }} variant="contained" onClick={() => handleSubmit()}>OK</Button>
               </div>
 
             </div>

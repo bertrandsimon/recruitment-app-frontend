@@ -30,6 +30,7 @@ function Home() {
   const [editoTitle, setEditoTitle] = useState('');
   const [editoTxt, setEditoTxt] = useState('');
 
+
   useEffect(() => {
     fetch('http://localhost:3000/edito')
       .then(response => response.json())
@@ -68,7 +69,7 @@ function Home() {
         
         <Banner/>
 
-        <div style={{ zIndex: 4 }} className={styles.jobCardsWrapper}>
+        <div style={{ zIndex: 4 }} className={styles.jobCardsWrapper} >
           <JobCardsWrapper/>
         </div>
         
@@ -76,7 +77,7 @@ function Home() {
        
 
         <br /><br /><br /><br />
-        
+        <div id="scrollTo"></div>
   
         
     </div>
