@@ -2,24 +2,39 @@ import styles from '../../styles/Slider.module.css';
 import { TextField } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 
+import { searchJobSelected } from '../../reducers/jobs';
+import { loggedName } from '../../reducers/user';
+
+
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '@mui/material/Button';
 
-function Slider() {
 
+
+function Slider() {
+  
+  
   const [jobNames, setJobNames] = useState([])
   const [storesNames, setStoresNames] = useState([])
   const [jobNameSelected, setJobNameSelected] = useState('')
-  console.log(jobNameSelected)
+
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    setJobNameSelected(jobNameSelected)
-    console.log('clicked')
-    console.log('jobNameSelected:', jobNameSelected)
+    dispatch(searchJobSelected(jobNameSelected))
+    const targetComponent = document.getElementById('scrollTo');
+    const targetOffset = targetComponent.offsetTop + 1200;
+    window.scrollTo({
+      top: targetOffset + 400,
+      behavior: 'smooth'
+    });
+
   };
+
+  const jobSelectedInReducer = useSelector((state) => state.jobs.searchedJobName);
+ 
 
   useEffect(() => {
     fetch('http://localhost:3000/jobs/inputData')
@@ -31,27 +46,7 @@ function Slider() {
   }, []);
 
   
-  //console.log(jobNames)
-  //console.log(storesNames)
   
-  // const jobs = [
-  //   { label: 'Manutention', year: 1994 },
-  //   { label: 'Employé', year: 1972 },
-  //   { label: 'Caisse', year: 1974 },
-  //   { label: 'Exemple', year: 2008 },
-  //   { label: 'Exemple', year: 1957 },
-  //   { label: "Exemple", year: 1993 },
-  // ];
-  
-  // const shops = [
-  //   { label: 'Pedro shop - 13 200', year: 1994 },
-  //   { label: 'Magasin Marseille - 13600', year: 1972 },
-  //   { label: 'MILLANCOURT ET NICOLAS - 78260', year: 1974 },
-  //   { label: 'Magasin 4', year: 2008 },
-  //   { label: 'Magasin 5', year: 1957 },
-  //   { label: "Magasin 6", year: 1993 },
-  // ];
-
   const jobsCount = useSelector((state) => state.jobs.jobs);
 
   return (
