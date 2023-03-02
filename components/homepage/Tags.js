@@ -5,6 +5,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import Badge from '@mui/material/Badge';
+
+import { searchJobSelected, jobTagSelected } from '../../reducers/jobs';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 
@@ -19,6 +22,14 @@ function Tags() {
 
   const [allTags, setAllTags] = useState([])
 
+  const dispatch = useDispatch();
+  
+  const handleSubmit = (key) => {
+    dispatch(jobTagSelected(key))
+    console.log(key)
+  };
+
+
   useEffect (() => {countJobs()},[])
     
     const countJobs = () => {
@@ -27,11 +38,10 @@ function Tags() {
       }).then(response => response.json())
         .then(data => {
           
-          //console.log(typeof data.jobsByType)
           allTag = data.jobsByType.map((data,i) => {
             return (
-            <div key={i}>
-              <ListItem button>
+            <div key={i} >
+              <ListItem button onClick={() => handleSubmit(data.key)}>
               <ListItemText primary={data.key} /><Badge badgeContent={data.nb} color="primary"></Badge>
               </ListItem>
               <Divider />
@@ -40,6 +50,18 @@ function Tags() {
           setAllTags(allTag)
         });
     };
+
+    // useEffect(() => {
+    //   fetch('http://localhost:3000/jobs/byTypes')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       setAllTags(data.jobsByType);
+    //     });
+    // }, []);
+
+    
+
+
 
 
   return (

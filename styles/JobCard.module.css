@@ -134,3 +134,11 @@
   .jobImg{
     border-radius: 6px;
   }
+.card {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card.show {
+  opacity: 1;
+}
