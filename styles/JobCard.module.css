@@ -13,6 +13,7 @@
   
     padding-top: 0px;
     padding-bottom: 10px;
+  
 }
 
 .headerWrapper{
@@ -128,4 +129,8 @@
     background: #B00620;
     color: white;
     
+  }
+
+  .jobImg{
+    border-radius: 6px;
   }

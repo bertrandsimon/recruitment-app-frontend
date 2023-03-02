@@ -5,4 +5,8 @@
     flex-wrap: wrap;
     justify-content: center;
     gap : 50px;
+    background: url('/images/bg-jobs.jpg');
+    background-repeat: no-repeat;
+	background-size: contain;
+    background-position: center;
 }

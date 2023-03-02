@@ -17,13 +17,10 @@ function TopOffersWrapper() {
     fetch('http://localhost:3000/jobs')
       .then(response => response.json())
       .then(data => {
-        
         setTopOfferssData(data.topOffers);
-        //console.log('jobsData :', jobsData)
       });
   }, []);
 
-  
 
   const prevSlide = () => {
     setSlideIndex(Math.max(slideIndex - 1, 0));
