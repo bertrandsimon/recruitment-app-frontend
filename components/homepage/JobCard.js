@@ -33,8 +33,7 @@ function JobCard(props) {
         handleClose();
 
       });
-    //console.log('clicked token is =', token)
-    //console.log('clicked job id is =', idJob)
+   
   };
 
   return (

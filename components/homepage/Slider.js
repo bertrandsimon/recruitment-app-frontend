@@ -3,8 +3,6 @@ import { TextField } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 
 import { searchJobSelected } from '../../reducers/jobs';
-import { loggedName } from '../../reducers/user';
-
 
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
