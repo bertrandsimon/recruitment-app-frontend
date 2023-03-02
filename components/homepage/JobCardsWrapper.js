@@ -17,11 +17,9 @@ function JobCardsWrapper() {
     fetch('http://localhost:3000/jobs')
       .then(response => response.json())
       .then(data => {
-        
-        setJobsData(data.allOffers);
+        const filteredDatas = data.allOffers.filter(job => job.title === 'Magasinier Vendeur');
+        setJobsData(filteredDatas);
         dispatch(jobsCount(data.allOffers.length))
-        //console.log(data.allOffers.length)
-        //console.log('jobsData :', jobsData)
       });
   }, []);
 
