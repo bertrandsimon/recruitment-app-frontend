@@ -17,19 +17,20 @@
     background-color: #C60501;
     box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.3);
     
-    
-   
    }
+
+
 
    .other{
     background: linear-gradient(180deg, #990313 0%, #C50400 50%);
    }
 
-   .cardWrapper:hover > .txt, .cardWrapper:hover > h5, .cardWrapper:hover > .day > span{
-    
-   color: white;
-   }
-
+   .cardWrapper:hover > .txt, .cardWrapper:hover > h5, .cardWrapper:hover > .day {
+    color: white !important;
+  }
+  .cardWrapper:hover > .day {
+    color: white !important;
+  }
 .tagWrapper{
 
     display: flex;
@@ -79,7 +80,7 @@
     width: 30%;
     border-top: 1px dashed #B2B2B2;
    }
-.day {color: black;}
+.day {color: black ;}
 
 .jobCardContainer{
     display: flex;
@@ -212,3 +213,5 @@
     color: white;
     
   }
+
+  

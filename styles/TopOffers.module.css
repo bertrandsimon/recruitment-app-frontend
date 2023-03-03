@@ -4,7 +4,7 @@
    flex-direction: row;
    align-items: center;
    justify-content: flex-start;
-   margin-top: -80px;
+   margin-top: -8px;
    position: relative;
    }
 
@@ -23,7 +23,13 @@
     background: #FFFFFF;
     border-radius: 5px;
     margin-top: -40px;
-    margin-left: 80px;
+    margin-left: 140px;
+    justify-content: center;
+  }
+
+  .subtitle1{
+    font-size: 28px;
+    font-weight: 300;
   }
 
   .subtitle2{

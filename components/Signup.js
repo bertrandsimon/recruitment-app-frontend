@@ -36,10 +36,6 @@ function Signup() {
       });
   };
 
-  //console.log(email)
-  //console.log(password)
-
-
 
   return (
   <div className={styles.container}>

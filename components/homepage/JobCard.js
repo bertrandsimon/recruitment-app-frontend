@@ -9,12 +9,15 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
-
-import applyJob from '../../reducers/applyReducer';
+import Tooltip from '@mui/material/Tooltip';
+import {applyJob} from '../../reducers/applyReducer';
 
 function JobCard(props) {
 
+  
+  const appliedJobs = useSelector((state) => state.applyReducer.value);
  
+  console.log('appliedJobs', appliedJobs)
   const handleClick = (newState) => () => {
     setState({ open: true, ...newState });
   };
@@ -33,7 +36,7 @@ function JobCard(props) {
   const token = useSelector((state) => state.user.token);
   //console.log('token is =', token)
   
-  const handleApply = (token, id, date) => {
+  const handleApply = (token, id) => {
     //console.log(token)
     fetch('http://localhost:3000/jobs/applied', {
       method: 'POST',
@@ -41,9 +44,9 @@ function JobCard(props) {
       body: JSON.stringify({ token:token, idJob:id }),
     }).then(response => response.json())
       .then(data => {
-        console.log(data);
+        //console.log(data);
 
-       dispatch(applyJob('test')); 
+       dispatch(applyJob(id)); 
         handleClose(); 
       })
       .catch(error => {
@@ -54,13 +57,17 @@ function JobCard(props) {
    
   };
 
+  const isJobApplied = appliedJobs.includes(props._id);
+  
+  //console.log('props._id', props._id)
+  //console.log('isJobApplied', isJobApplied)
   return (
 
     <div className={styles.jobCardContainer}>
     
       <div className={styles.headerWrapper}>
         <div onClick={handleClickOpen}><h5>{props.title}</h5></div>
-        <div className={styles.heart}><FontAwesomeIcon icon={faHeart} className="far" /></div>
+        <div className={styles.heart}><Tooltip title="Mettre en favori"><FontAwesomeIcon icon={faHeart} className="far" /></Tooltip></div>
       </div>
 
       <div className={styles.subWrapper}>
@@ -131,13 +138,16 @@ function JobCard(props) {
           <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
         </div>
 
-        <div className={styles.ctaWhite} onClick={() => handleApply(token, props._id, props.date)}><span>Je postule</span></div>
-
-
         <div>
-          
-          <span className={styles.dateFrom}>{props.date}</span>
+          {isJobApplied ? (
+            <div className={styles.ctaWhiteInactive}><span>Déja postulé</span></div>
+          ) : (
+            <div className={styles.ctaWhite} onClick={() => handleApply(token, props._id)}><span>Je postule</span></div>
+          )}
         </div>
+
+
+       
         </div>
 
         </DialogContent>
