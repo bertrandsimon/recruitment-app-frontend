@@ -40,7 +40,12 @@ function Signin(props) {
       });
   };
 
-  
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+
   return (
     <div className={styles.container}>
 
@@ -49,11 +54,12 @@ function Signin(props) {
       </div>
 
       <div className={styles.email}>
-        <TextField id="outlined-basic" label="Email" variant="outlined" onChange={(e) => setEmail(e.target.value)} />
+      <TextField id="outlined-basic" label="Email" variant="outlined" type="email" onChange={(e) => setEmail(e.target.value)} error={!isValidEmail(email)}
+        helperText={!isValidEmail(email) && "Email non valide"}/>
       </div>
 
       <div className={styles.password}>
-        <TextField id="outlined-basic" label="Mot de passe" variant="outlined" onChange={(e) => setPassword(e.target.value)}/>
+        <TextField id="outlined-basic" label="Mot de passe" type="password" variant="outlined" onChange={(e) => setPassword(e.target.value)}/>
       </div>
 
       <div className={styles.connect}>

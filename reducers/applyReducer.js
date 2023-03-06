@@ -9,9 +9,9 @@ export const applyReducer = createSlice({
 	initialState,
 	reducers: {
 		applyJob: (state, action) => {
-			console.log('', state.value)
+			//console.log('', state.value)
 			state.value.push(action.payload);
-			console.log('', state.value)
+			//console.log('', state.value)
 		},
 		
 		
