@@ -36,6 +36,10 @@ function Signup() {
       });
   };
 
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   return (
   <div className={styles.container}>
@@ -53,7 +57,8 @@ function Signup() {
     </div>
 
     <div className={styles.email}>
-      <TextField id="outlined-basic" label="Email" variant="outlined" onChange={(e) => setEmail(e.target.value)} />
+    <TextField id="outlined-basic" label="Email" variant="outlined" type="email" onChange={(e) => setEmail(e.target.value)} error={!isValidEmail(email)}
+      helperText={!isValidEmail(email) && "Email non valide"}/>
     </div>
 
     <div className={styles.password}>

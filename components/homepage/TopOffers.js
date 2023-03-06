@@ -12,7 +12,9 @@ function TopOffers() {
 
        
         <div className={styles.title2}>
-            <span className={styles.subtitle1}>Les offres</span> <span className={styles.subtitle2}> du moment</span><Image src="/images/arrow2.jpg" width={19} height={27} className={styles.arrow}/>
+            <span className={styles.subtitle1}>Les offres</span> 
+            <span className={styles.subtitle2}> du moment</span>
+            <Image src="/images/arrow2.jpg" width={19} height={27} className={styles.arrow}/>
         </div>
     </div>
 
