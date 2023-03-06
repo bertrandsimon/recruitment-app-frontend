@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+	
 	jobs: 0,
 	searchedJobName: '',
+	tagSelected: 'Manutention',
 };
 
 export const jobs = createSlice({
@@ -17,9 +19,14 @@ export const jobs = createSlice({
 			state.searchedJobName = action.payload;
 			
 		},
+		jobTagSelected: (state, action) => {
+			state.tagSelected = action.payload;
+			
+		},
+	
 	
 	},
 });
 
-export const { jobsCount, searchJobSelected } = jobs.actions;
+export const { jobsCount, searchJobSelected, jobTagSelected} = jobs.actions;
 export default  jobs.reducer;

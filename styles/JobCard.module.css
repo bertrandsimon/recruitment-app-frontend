@@ -131,6 +131,30 @@
     
   }
 
+  .ctaWhiteInactive{margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    height: 30px;
+    background: #E5E5E5;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px;
+    color: #898989;
+    vertical-align: middle;
+  
+    font-size: 12px;
+    justify-content: center;
+    cursor: default;
+    width: 150px;}
+
   .jobImg{
     border-radius: 6px;
   }
+.card {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card.show {
+  opacity: 1;
+}

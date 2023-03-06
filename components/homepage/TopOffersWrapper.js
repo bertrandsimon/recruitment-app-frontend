@@ -4,7 +4,8 @@ import Image from 'next/image';
 import Tags from './Tags';
 import TopOffers from './TopOffers';
 import Card from './Card';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,14 +13,27 @@ function TopOffersWrapper() {
 
   const [topOffersData, setTopOfferssData] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
+  
+  const jobTagSelected = useSelector((state) => state.jobs.tagSelected);
+  
+
+
+
 
   useEffect(() => {
     fetch('http://localhost:3000/jobs')
       .then(response => response.json())
       .then(data => {
-        setTopOfferssData(data.topOffers);
+        if(jobTagSelected != 'allTags') {
+          const filteredDatas = data.topOffers.filter(data => data.jobType.typeName === jobTagSelected);
+          setTopOfferssData(filteredDatas);
+        }
+        else {
+          const filteredDatas = data.topOffers;
+          setTopOfferssData(filteredDatas);
+        }
       });
-  }, []);
+  }, [jobTagSelected]);
 
 
   const prevSlide = () => {
@@ -29,6 +43,8 @@ function TopOffersWrapper() {
   const nextSlide = () => {
     setSlideIndex(Math.min(slideIndex + 1, 8));
   };
+
+
 
   const topOfferCard = topOffersData.map( (data,i) => {
     return <Card key={i} {...data} />

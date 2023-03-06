@@ -20,6 +20,10 @@ function Card(props) {
     setOpen(false);
   };
 
+  const postDate = new Date(props.date); // Current date
+  const currentDate = new Date();
+  const daysAgo = Math.floor((currentDate - postDate) / (1000 * 60 * 60 * 24)); // Calculate the number of days since the post date
+
 
   return (
 
@@ -38,7 +42,7 @@ function Card(props) {
 
         <div className={styles.bottomWrapper}>
           <div className={styles.lineDashed}>  </div>
-          <div className={styles.day}><span>posté : 1 jour</span></div>
+          <div ><span className={styles.day}>posté : {daysAgo} jour{daysAgo === 1 ? '' : 's'}</span></div>
         </div>
 
         <Dialog
@@ -92,7 +96,7 @@ function Card(props) {
         <div className={styles.ctaWhite}><span>Je postule</span></div>
 
 
-        <div>
+        <div className={styles.date}>
           
           <span className={styles.dateFrom}>{props.date}</span>
         </div>

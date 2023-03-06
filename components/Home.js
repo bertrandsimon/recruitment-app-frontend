@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css';
 import Menu from './Menu';
 
 import Slider  from './homepage/Slider';
+import TopOffers  from './homepage/TopOffers';
 import TopOffersWrapper from './homepage/TopOffersWrapper';
 import Editorial  from './homepage/Editorial';
 import Banner  from './homepage/Banner';
@@ -55,10 +56,12 @@ function Home() {
         <Slider/>
         </div>
 
-
-        <div className={styles.title2}>
-            <span className={styles.subtitle1}>Les offres</span> <span className={styles.subtitle2}> du moment</span><Image src="/images/arrow2.jpg" width={19} height={27} className={styles.arrow}/>
+        <div style={{ zIndex: 6 }} className={styles.topOffersContainer}>
+          <TopOffers/>
         </div>
+
+
+       
         
         <div style={{ zIndex: 1 }} className={styles.topOffersWrapper}>
           <TopOffersWrapper/>

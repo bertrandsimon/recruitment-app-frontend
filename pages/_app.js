@@ -23,8 +23,9 @@ import storage from 'redux-persist/lib/storage';
 import hiddenArticles from '../reducers/hiddenArticles';
 import user from '../reducers/user';
 import jobs from '../reducers/jobs';
+import applyReducer from '../reducers/applyReducer';
 
-const reducers = combineReducers({ hiddenArticles, user, jobs });
+const reducers = combineReducers({ hiddenArticles, user, jobs, applyReducer });
 const persistConfig = { key: 'jobimat', storage };
 
 const store = configureStore({
