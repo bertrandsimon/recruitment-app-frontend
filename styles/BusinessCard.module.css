@@ -19,14 +19,15 @@
 .card:hover{
     background-color: #C60501;
     box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.3);  
+    transition: all 0.3s ease-out;
    }
 
-.container{
+/* .container{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     
-    /* width: 1450px;
+     width: 1450px;
     min-height: 20px;
     max-height: 170px;
     background: #FFFFFF;
@@ -35,7 +36,15 @@
     padding: 24px;
   
     padding-top: 0px;
-    padding-bottom: 10px; */
+    padding-bottom: 10px;
+} */
+
+
+.container{
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+      
 }
 
 .image{
@@ -60,7 +69,19 @@
     padding-bottom: 0px;
     font-size: 8px;
 }
+.card:hover>.title{
+    color: white;
+}
 
 .title>h6{
     margin: 10px;
 }
+
+.modalContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
