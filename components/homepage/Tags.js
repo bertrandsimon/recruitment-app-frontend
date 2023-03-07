@@ -42,7 +42,7 @@ function Tags() {
             return (
             <div key={i} >
               <ListItem button onClick={() => handleSubmit(data.key)}>
-              <ListItemText primary={data.key} /><Badge badgeContent={data.nb} color="primary"></Badge>
+              <ListItemText primary={data.key} /><Badge badgeContent={data.nb} color="ternary" max={999} className={styles.badgeBg}></Badge>
               </ListItem>
               <Divider />
             </div>

@@ -7,6 +7,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import Image from 'next/image';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
+import Tooltip from '@mui/material/Tooltip';
 
 function Card(props) {
 
@@ -23,17 +24,20 @@ function Card(props) {
   const postDate = new Date(props.date); // Current date
   const currentDate = new Date();
   const daysAgo = Math.floor((currentDate - postDate) / (1000 * 60 * 60 * 24)); // Calculate the number of days since the post date
-
+  console.log(props)
 
   return (
 
     <div className={styles.cardWrapper}>
-
-        <h5 onClick={handleClickOpen}>{props.title}</h5>
+        
+        <h5>{props.title}</h5>
 
         <div className={styles.tagWrapper}>
-          <div className={styles.tag1}><span>CDI</span></div>
-          <div className={styles.tag2}><span>78</span></div>
+        
+              
+        
+          <div className={styles.tag1}><Tooltip title={props.contract.type}><span>{props.contract.type.substring(0, 5)}</span></Tooltip></div>
+          <div className={styles.tag2}><Tooltip title={props.store.storeName}><span>{props.store.postalCode.substring(0, 2)}</span></Tooltip></div>
         </div>
 
         <div className={styles.txt}>
@@ -41,8 +45,8 @@ function Card(props) {
         </div>
 
         <div className={styles.bottomWrapper}>
-          <div className={styles.lineDashed}>  </div>
           <div ><span className={styles.day}>posté : {daysAgo} jour{daysAgo === 1 ? '' : 's'}</span></div>
+          <div className={styles.ctaWhiteSmall} onClick={handleClickOpen}> voir </div>
         </div>
 
         <Dialog
@@ -63,9 +67,9 @@ function Card(props) {
         <div className={styles.subWrapper}>
           <div><Image src="/images/job-card-img.jpg" width={75} height={75} className={styles.arrow}/></div>
           <div className={styles.titleWrapper}>
-            <div><span>Subtitle CP</span></div>
+            <div><span>{props.store.postalCode} {props.store.storeName}</span></div>
             <div className={styles.line}> </div>
-            <div className={styles.tag}>CDI</div>
+            <div className={styles.tag}><Tooltip title={props.contract.type}><span style={{ color: 'black !important' }}>{props.contract.type.substring(0, 5)}</span></Tooltip></div>
           </div>
         </div>
 
@@ -96,10 +100,7 @@ function Card(props) {
         <div className={styles.ctaWhite}><span>Je postule</span></div>
 
 
-        <div className={styles.date}>
-          
-          <span className={styles.dateFrom}>{props.date}</span>
-        </div>
+      
         </div>
 
         </DialogContent>

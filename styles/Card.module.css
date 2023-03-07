@@ -11,10 +11,11 @@
     margin: 20px;
     cursor:pointer;
     transition: all 0.3s ease-out;
+    border-radius: 6px;
    }
 
    .cardWrapper:hover{
-    background-color: #C60501;
+    background-color: #393738;
     box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.3);
     
    }
@@ -71,7 +72,9 @@
 .bottomWrapper{
     display: flex;
     flex-direction: row;
-    justify-content:space-around
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
    }
 .bottomWrapper > div > span {font-size: 13px; font-weight:200}
    
@@ -80,7 +83,7 @@
     width: 30%;
     border-top: 1px dashed #B2B2B2;
    }
-.day {color: black ;}
+.day {color: #7F7F7F ; font-size: 12px !important;}
 
 .jobCardContainer{
     display: flex;
@@ -150,6 +153,7 @@
     margin-right: 5px;
     padding: 2px;
     font-weight: 300;
+   
 }
 
 .textWrapper{
@@ -209,6 +213,29 @@
   }
   
   .ctaWhite:hover {
+    background: #B00620;
+    color: white;
+    
+  }
+
+  .ctaWhiteSmall {
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    height: 20px;
+    background: #FFFFFF;
+    border: 1px solid #B00620;
+    border-radius: 4px;
+    color: #B00620;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 12px;
+    
+  }
+  
+  .ctaWhiteSmall:hover {
     background: #B00620;
     color: white;
     

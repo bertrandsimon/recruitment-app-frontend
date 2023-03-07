@@ -17,7 +17,6 @@ function JobCard(props) {
   
   const appliedJobs = useSelector((state) => state.applyReducer.value);
  
-  console.log('appliedJobs', appliedJobs)
   const handleClick = (newState) => () => {
     setState({ open: true, ...newState });
   };
@@ -34,10 +33,10 @@ function JobCard(props) {
   };
 
   const token = useSelector((state) => state.user.token);
-  //console.log('token is =', token)
+ 
   
   const handleApply = (token, id) => {
-    //console.log(token)
+   
     fetch('http://localhost:3000/jobs/applied', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -58,9 +57,7 @@ function JobCard(props) {
   };
 
   const isJobApplied = appliedJobs.includes(props._id);
-  
-  //console.log('props._id', props._id)
-  //console.log('isJobApplied', isJobApplied)
+
   return (
 
     <div className={styles.jobCardContainer}>

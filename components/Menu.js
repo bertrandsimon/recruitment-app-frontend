@@ -73,7 +73,7 @@ function Menu() {
           <div> | </div>
           <div><h4>Contact</h4></div> */}
           <div>  </div>
-          {userLoggedStatus === false && <div className={styles.ctaWhite} onClick={handleClickOpen} ><span>Connexion</span></div>}
+          {userLoggedStatus === false && <div className={styles.ctaWhite} onClick={handleClickOpen} ><span>Connection</span></div>}
           {userLoggedStatus === true && <div className={styles.connectionArea}>
             <span>Connecté {username}</span>
 
