@@ -2,7 +2,6 @@ import styles from '../../styles/TopOffersWrapper.module.css';
 import Image from 'next/image';
 
 import Tags from './Tags';
-import TopOffers from './TopOffers';
 import Card from './Card';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

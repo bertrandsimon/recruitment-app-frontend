@@ -67,11 +67,11 @@ function Menu() {
         <div className={styles.logo}><Image src="/images/gedimat-logo.png" alt="avatar" width={190} height={75} /></div>
         
         <div className={styles.menuContainer}>
-          <div><h4>Opportunités</h4></div>
+          {/* <div><h4>Opportunités</h4></div>
           <div> | </div>
           <div><h4>Carrières</h4></div>
           <div> | </div>
-          <div><h4>Contact</h4></div>
+          <div><h4>Contact</h4></div> */}
           <div>  </div>
           {userLoggedStatus === false && <div className={styles.ctaWhite} onClick={handleClickOpen} ><span>Connexion</span></div>}
           {userLoggedStatus === true && <div className={styles.connectionArea}>
