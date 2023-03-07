@@ -5,8 +5,24 @@ const theme = createTheme({
   palette: {
     primary: {
       main: "#B00620"
-    }
-  }
+    },
+    seconday: {
+      main: "#a59d95"
+    },
+    ternary: {
+      main: "#aa9a7c"
+      
+    },
+    
+  },
+  overrides: {
+    MuiTooltip: {
+      tooltip: {
+        fontSize: '14px', 
+        fontFamily: 'Poppins',
+      },
+    },
+  },
 });
 
 

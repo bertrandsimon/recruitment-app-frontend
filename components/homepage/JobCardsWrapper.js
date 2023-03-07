@@ -5,12 +5,15 @@ import { jobsCount } from '../../reducers/jobs';
 
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
+
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+
 
 function JobCardsWrapper() {
 
   const [jobsData, setJobsData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
 
   const jobSelectedInReducer = useSelector((state) => state.jobs.searchedJobName);
@@ -19,24 +22,45 @@ function JobCardsWrapper() {
     fetch('http://localhost:3000/jobs')
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+
+        if(jobSelectedInReducer){
         const filteredDatas = data.allOffers.filter(job => job.title === jobSelectedInReducer);
         setJobsData(filteredDatas);
         dispatch(jobsCount(data.allOffers.length))
+        }
+        else {
+        setJobsData(data.allOffers);
+        dispatch(jobsCount(data.allOffers.length))
+        }
+
       });
   }, [jobSelectedInReducer]);
 
+  const startIndex = (currentPage - 1) * 12;
+  const endIndex = startIndex + 12;
 
-console.log(jobsData)
-  const jobCards = jobsData.map( (data,i) => {
+  // Slice the jobCards array to display only the jobs for the current page
+  const jobCards = jobsData.slice(startIndex, endIndex).map((data, i) => {
     return <JobCard key={i} {...data} />
-  })
+  });
+
+  const totalPages = Math.ceil(jobsData.length / 12);
+
+  const handlePageChange = (event, page) => {
+    setCurrentPage(page);
+  };
 
   return (
 
     <div className={styles.container}>
 
-      {jobCards}
+      <div className={styles.cardsContainer}>
+        {jobCards}
+      </div>
+
+      <Stack spacing={2}>
+        <Pagination count={totalPages} variant="outlined" shape="rounded" page={currentPage} onChange={handlePageChange} />
+      </Stack>
 
     </div>
 

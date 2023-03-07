@@ -3,7 +3,6 @@ import styles from '../styles/Home.module.css';
 import Menu from './Menu';
 
 import Slider  from './homepage/Slider';
-import TopOffers  from './homepage/TopOffers';
 import TopOffersWrapper from './homepage/TopOffersWrapper';
 import Editorial  from './homepage/Editorial';
 import Banner  from './homepage/Banner';
@@ -11,6 +10,7 @@ import EditorialWrapper from './homepage/EditorialWrapper';
 import JobCardsWrapper from './homepage/JobCardsWrapper';
 import Footer from './Footer';
 
+import DummyLauncher from './DummyLauncher';
 
 // STATES IMPORT
 import { useEffect, useState } from 'react';
@@ -24,8 +24,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 // MUI IMPORTS
-import TextField from '@mui/material/TextField';
-
+import Container from '@mui/material/Container';
 
 import BusinessCard from './homepage/BusinessCard';
 
@@ -42,14 +41,15 @@ function Home() {
       .then(data => {
         setEditoTitle(data.title)
         setEditoTxt(data.text)
-        console.log(data.title)
-        console.log(data.text)
+       
       });
   }, []);
  
   return (
-    <div>
-     
+
+  
+    <div className={styles.container}>
+        <DummyLauncher/>
         <Menu />
       
 
@@ -57,10 +57,7 @@ function Home() {
         <Slider/>
         </div>
 
-        <div style={{ zIndex: 6 }} className={styles.topOffersContainer}>
-          <TopOffers/>
-        </div>
-
+     
 
        
         
