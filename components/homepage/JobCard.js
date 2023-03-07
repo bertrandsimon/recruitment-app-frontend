@@ -65,6 +65,10 @@ function JobCard(props) {
 
   const isJobApplied = appliedJobs.includes(props._id);
 
+  const postDate = new Date(props.date); // Current date
+  const currentDate = new Date();
+  const daysAgo = Math.floor((currentDate - postDate) / (1000 * 60 * 60 * 24)); // Calculate the number of days since the post date
+  
   
   return (
 
@@ -76,7 +80,11 @@ function JobCard(props) {
       </div>
 
       <div className={styles.subWrapper}>
-        <div><Image src={props.jobImage} width={100} height={100} style={{ borderRadius: '6px' }}/></div>
+        <div style={{ width: '100px', height: '100px', position: 'relative' }}>
+          <Image src={props.jobImage}  layout="fill"
+              objectFit="cover"
+              objectPosition="center" style={{ borderRadius: '6px' }}/>
+        </div>
         <div className={styles.titleWrapper}>
           <div><span>Subtitle CP</span></div>
           <div className={styles.line}> </div>
@@ -90,7 +98,7 @@ function JobCard(props) {
       </div>
 
       <div>
-        <span className={styles.dateFrom}>{props.date}</span>
+        <span className={styles.dateFrom}>posté : {daysAgo} jour{daysAgo === 1 ? '' : 's'}</span>
       </div>
 
       <Dialog
