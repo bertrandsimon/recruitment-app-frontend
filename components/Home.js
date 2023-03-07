@@ -53,10 +53,7 @@ function Home() {
         <Slider/>
         </div>
 
-        <div style={{ zIndex: 6 }} className={styles.topOffersContainer}>
-          <TopOffers/>
-        </div>
-
+     
 
        
         

@@ -9,7 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '@mui/material/Button';
 
-
+// IMAGE IMPORT
+import Image from 'next/image';
 
 function Slider() {
   
@@ -51,7 +52,7 @@ function Slider() {
 
     <div className={styles.container}>
 
-        <div className={styles.searchBox}>
+        <div className={styles.searchBox} sx={{ zIndex: 10000 }}>
           <h1>{jobsCount} Offres d'emploi</h1>
 
             <div className={styles.formWrapper}>
@@ -142,6 +143,21 @@ function Slider() {
               <div>
               <Button sx={{ height: '99%' }} variant="contained" onClick={() => handleSubmit()}>OK</Button>
               </div>
+
+            </div>
+
+
+            <div>
+
+                <div className={styles.containerTopOffers}>
+
+                <div className={styles.title2TopOffers}>
+                    <span className={styles.subtitle1TopOffers}>Les offres</span> 
+                    <span className={styles.subtitle2TopOffers}> du moment</span>
+                    <Image src="/images/arrow2.jpg" width={19} height={27} className={styles.arrowTopOffers}/>
+                </div>
+                
+                </div>
 
             </div>
          
