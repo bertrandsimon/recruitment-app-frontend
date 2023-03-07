@@ -19,9 +19,17 @@ function JobCardsWrapper() {
     fetch('http://localhost:3000/jobs')
       .then(response => response.json())
       .then(data => {
+
+        if(jobSelectedInReducer){
         const filteredDatas = data.allOffers.filter(job => job.title === jobSelectedInReducer);
         setJobsData(filteredDatas);
         dispatch(jobsCount(data.allOffers.length))
+        }
+        else {
+        setJobsData(data.allOffers);
+        dispatch(jobsCount(data.allOffers.length))
+        }
+
       });
   }, [jobSelectedInReducer]);
 

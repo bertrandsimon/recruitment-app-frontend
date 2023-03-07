@@ -9,7 +9,7 @@ import Editorial  from './homepage/Editorial';
 import Banner  from './homepage/Banner';
 import EditorialWrapper from './homepage/EditorialWrapper';
 import JobCardsWrapper from './homepage/JobCardsWrapper';
-
+import DummyLauncher from './DummyLauncher';
 
 // STATES IMPORT
 import { useEffect, useState } from 'react';
@@ -45,7 +45,7 @@ function Home() {
  
   return (
     <div>
-     
+        <DummyLauncher/>
         <Menu />
       
 

@@ -22,8 +22,9 @@ function Signup() {
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isEmailValid, setIsEmailValid] = useState(true);
 
-
+  
   const handleSubmit = () => {
     fetch('http://localhost:3000/users/signup', {
       method: 'POST',
@@ -36,10 +37,22 @@ function Signup() {
       });
   };
 
-  const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  //Check email's validation
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+    setIsEmailValid(validateEmail(event.target.value));
   };
+
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+
+  //Disabled only if we have all the required information
+  const isFormFilled = name && surname && email && password && isEmailValid;
+
+
 
   return (
   <div className={styles.container}>
@@ -57,18 +70,15 @@ function Signup() {
     </div>
 
     <div className={styles.email}>
-    <TextField id="outlined-basic" label="Email" variant="outlined" type="email" onChange={(e) => setEmail(e.target.value)} error={!isValidEmail(email)}
-      helperText={!isValidEmail(email) && "Email non valide"}/>
+      <TextField label="Email" variant="outlined" value={email} onChange={handleEmailChange} error={!isEmailValid} helperText={!isEmailValid ? "Email non valide" : ""}/>
     </div>
 
     <div className={styles.password}>
       <TextField id="outlined-basic" label="Mot de passe" variant="outlined" type="password" onChange={(e) => setPassword(e.target.value)}/>
     </div>
 
-
-
     <div className={styles.register}>
-      <Button sx={{ height: '99%' }} variant="contained" onClick={() => handleSubmit()}>S'enregistrer</Button>
+      <Button sx={{ height: '99%' }} variant="contained" onClick={() => handleSubmit()} disabled={!isFormFilled}>S'enregistrer</Button>
     </div>
 
 
