@@ -37,8 +37,7 @@ function Home() {
       .then(data => {
         setEditoTitle(data.title)
         setEditoTxt(data.text)
-        console.log(data.title)
-        console.log(data.text)
+       
       });
   }, []);
  

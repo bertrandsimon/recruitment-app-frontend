@@ -32,9 +32,11 @@ function Signup() {
       body: JSON.stringify({ email, password }),
     }).then(response => response.json())
       .then(data => {
-        //console.log(data)
-       data.result (({ token: data.token, email: data.email }));
+        console.log(data)
+       //data.result (({ token: data.token, email: data.email }));
       });
+
+
   };
 
   //Check email's validation

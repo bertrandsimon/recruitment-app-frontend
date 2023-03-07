@@ -131,6 +131,29 @@
     
   }
 
+  .ctaWhite2 {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #B00620;
+    border-radius: 4px;
+    color: #B00620;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 12px;
+    width: 250px;
+  }
+  
+  .ctaWhite2:hover {
+    background: #B00620;
+    color: white;
+    
+  }
+
   .ctaWhiteInactive{margin-top: 10px;
     display: flex;
     align-items: center;

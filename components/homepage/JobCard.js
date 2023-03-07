@@ -11,12 +11,15 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Tooltip from '@mui/material/Tooltip';
 import {applyJob} from '../../reducers/applyReducer';
+import Signup from '../Signup';
 
 function JobCard(props) {
 
   
   const appliedJobs = useSelector((state) => state.applyReducer.value);
- 
+  const isConnected = useSelector((state) => state.user.userConnected);
+
+
   const handleClick = (newState) => () => {
     setState({ open: true, ...newState });
   };
@@ -24,12 +27,18 @@ function JobCard(props) {
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
+  const [openRegister, setOpenRegister] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+    setOpenRegister(false);
+  };
+
+  const handleRegister = () => {
+    setOpenRegister(true);
   };
 
   const token = useSelector((state) => state.user.token);
@@ -43,21 +52,20 @@ function JobCard(props) {
       body: JSON.stringify({ token:token, idJob:id }),
     }).then(response => response.json())
       .then(data => {
-        //console.log(data);
 
        dispatch(applyJob(id)); 
         handleClose(); 
+
       })
       .catch(error => {
         console.log(error); // Log any errors that occur
       });
       
-      
-   
   };
 
   const isJobApplied = appliedJobs.includes(props._id);
 
+  
   return (
 
     <div className={styles.jobCardContainer}>
@@ -94,58 +102,73 @@ function JobCard(props) {
         
         <DialogContent>
 
-        <div className={styles.jobCardContainerModal}>
-          <div className={styles.headerWrapper}>
-            <div><h5>{props.title}</h5></div>
-            <div className={styles.heart}><FontAwesomeIcon icon={faHeart} className="far" /></div>
-          </div>
-
-        <div className={styles.subWrapper}>
-          <div><Image src={props.jobImage} width={75} height={75} style={{ borderRadius: '6px' }}/></div>
-          
-          <div className={styles.titleWrapper}>
-            <div><span>Subtitle CP</span></div>
-            <div className={styles.line}> </div>
-            <div className={styles.tag}>CDI</div>
-          </div>
-        </div>
-
-        <div className={styles.textWrapper}>
-          <span className={styles.textTitle}>Description</span>
-          <div className={styles.lineModal}> </div>
-          <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
-          
-        </div>
-
-        <div className={styles.textWrapper}>
-          <span className={styles.textTitle}>Missions</span>
-          <div className={styles.lineModal}> </div>
-          <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
-        </div>
-
-        <div className={styles.textWrapper}>
-          <span className={styles.textTitle}>Profil</span>
-          <div className={styles.lineModal}> </div>
-          <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
-        </div>
-
-        <div className={styles.textWrapper}>
-          <span className={styles.textTitle}>Modalités de contrat</span>
-          <div className={styles.lineModal}> </div>
-          <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
-        </div>
-
-        <div>
-          {isJobApplied ? (
-            <div className={styles.ctaWhiteInactive}><span>Déja postulé</span></div>
+        {openRegister ? (
+            <Signup/>
           ) : (
-            <div className={styles.ctaWhite} onClick={() => handleApply(token, props._id)}><span>Je postule</span></div>
-          )}
-        </div>
+            <div className={styles.jobCardContainerModal}>
+            <div className={styles.headerWrapper}>
+              <div><h5>{props.title}</h5></div>
+              <div className={styles.heart}><FontAwesomeIcon icon={faHeart} className="far" /></div>
+            </div>
+  
+          <div className={styles.subWrapper}>
+            <div><Image src={props.jobImage} width={75} height={75} style={{ borderRadius: '6px' }}/></div>
+            
+            <div className={styles.titleWrapper}>
+              <div><span>Subtitle CP</span></div>
+              <div className={styles.line}> </div>
+              <div className={styles.tag}>CDI</div>
+            </div>
+          </div>
+  
+          <div className={styles.textWrapper}>
+            <span className={styles.textTitle}>Description</span>
+            <div className={styles.lineModal}> </div>
+            <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
+            
+          </div>
+  
+          <div className={styles.textWrapper}>
+            <span className={styles.textTitle}>Missions</span>
+            <div className={styles.lineModal}> </div>
+            <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
+          </div>
+  
+          <div className={styles.textWrapper}>
+            <span className={styles.textTitle}>Profil</span>
+            <div className={styles.lineModal}> </div>
+            <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
+          </div>
+  
+          <div className={styles.textWrapper}>
+            <span className={styles.textTitle}>Modalités de contrat</span>
+            <div className={styles.lineModal}> </div>
+            <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
+          </div>
+  
+          <div>
+  
+          {isConnected ? (
+  
+              <div>
+                {isJobApplied ? (
+                  <div className={styles.ctaWhiteInactive}><span>Déja postulé</span></div>
+                ) : (
+                  <div className={styles.ctaWhite} onClick={() => handleApply(token, props._id)}><span>Je postule</span></div>
+                )}
+              </div>
+  
+            ) : (
+              <div className={styles.ctaWhite2} onClick={() => handleRegister()}><span>Créer un compte pour postuler</span></div>
+            )}
+  
+          </div>
+  
+          </div>
 
+          )}
 
        
-        </div>
 
         </DialogContent>
   

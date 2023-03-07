@@ -8,8 +8,8 @@ import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // REDUCERS
-import { loggedStatus } from '../reducers/user';
-import { loggedName } from '../reducers/user';
+import { loggedStatus, loggedName, loggedToken } from '../reducers/user';
+
 
 // STATES IMPORT
 
@@ -51,6 +51,7 @@ function Menu() {
   const handleLogout = () => {
     dispatch(loggedStatus())
     dispatch(loggedName(''))
+    dispatch(loggedToken(''))
   }
 
   const handleSigninChoice = () => {setLoginChoice('signin')};

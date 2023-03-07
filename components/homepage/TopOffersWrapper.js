@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Tags from './Tags';
 import Card from './Card';
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,8 +15,6 @@ function TopOffersWrapper() {
   
   const jobTagSelected = useSelector((state) => state.jobs.tagSelected);
   
-
-
 
 
   useEffect(() => {

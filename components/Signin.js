@@ -32,7 +32,7 @@ function Signin(props) {
       body: JSON.stringify({ email, password }),
     }).then(response => response.json())
       .then(data => {
-        console.log(data)
+       
         dispatch(loggedStatus())
         dispatch(loggedName(data.name))
         dispatch(loggedToken(data.token))

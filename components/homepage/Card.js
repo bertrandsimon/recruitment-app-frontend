@@ -1,5 +1,6 @@
 import styles from '../../styles/Card.module.css';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -11,20 +12,44 @@ import Tooltip from '@mui/material/Tooltip';
 
 function Card(props) {
 
+  const appliedJobs = useSelector((state) => state.applyReducer.value);
+
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
     
   };
 
+  const dispatch = useDispatch();
+
   const handleClose = () => {
     setOpen(false);
   };
 
+  const handleApply = (token, id) => {
+   
+    fetch('http://localhost:3000/jobs/applied', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token:token, idJob:id }),
+    }).then(response => response.json())
+      .then(data => {
+
+       dispatch(applyJob(id)); 
+        handleClose(); 
+      })
+      .catch(error => {
+        console.log(error); // Log any errors that occur
+      });
+   
+  };
+
+  const isJobApplied = appliedJobs.includes(props._id);
+
   const postDate = new Date(props.date); // Current date
   const currentDate = new Date();
   const daysAgo = Math.floor((currentDate - postDate) / (1000 * 60 * 60 * 24)); // Calculate the number of days since the post date
-  console.log(props)
+  
 
   return (
 
@@ -97,7 +122,7 @@ function Card(props) {
           <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
         </div>
 
-        <div className={styles.ctaWhite}><span>Je postule</span></div>
+        <div className={styles.ctaWhite} onClick={() => handleApply(token, props._id)}><span>Je postule</span></div>
 
 
       
