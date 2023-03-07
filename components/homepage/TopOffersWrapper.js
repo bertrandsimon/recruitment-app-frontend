@@ -8,11 +8,18 @@ import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
+
+import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
+
 function TopOffersWrapper() {
 
   const [topOffersData, setTopOfferssData] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
-  
+  const [loadingTags, setLoadingTags] = useState(true);
+
   const jobTagSelected = useSelector((state) => state.jobs.tagSelected);
   
 
@@ -31,6 +38,14 @@ function TopOffersWrapper() {
         }
       });
   }, [jobTagSelected]);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoadingTags(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
 
   const prevSlide = () => {
@@ -60,16 +75,32 @@ function TopOffersWrapper() {
       <div className={styles.tagsAndCardscontainer}>
 
       <div className={styles.tagsWrapper}>
+             
+      {loadingTags ? (
+        <LinearProgress color="ternary" style={{ marginTop: '170px' }} />
+      ) : (
         <Tags />
-        
+      )}
+            
+            
       </div>
 
       <div className={styles.cardsWrapper} style={{ transform: `translateX(-${slideIndex * 300}px)` }}>
+      {loadingTags ? (
+        <>
+          <div className={styles.progressContainer}>
+           
+            <CircularProgress color="ternary"/>
+           
+          </div>
+        </>
+      ) : (
+        <>{topOfferCard}</>
+      )}
       
-      {topOfferCard}
-
+     
       </div>
-
+     
       </div>
     </div>
 

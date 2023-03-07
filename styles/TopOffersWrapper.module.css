@@ -21,21 +21,25 @@
 }
 
 .tagsAndCardscontainer{
-  
    display: flex;
    flex-direction: row;
    justify-content: flex-start;
    max-width: 1700px;
-   width: 100%;
+   width: 100vw;
    overflow-x: hidden;
    }
 
    
 .tagsWrapper {
-  
    background-color: white;
    z-index:1000;
    padding-right: 50px;
+   display: flex;
+   flex-direction: column;
+   min-height: 130px;
+   min-width: 250px;
+   
+
 }
 .cardsWrapper {
    padding-left: 0px;
@@ -45,6 +49,12 @@
    flex-wrap: nowrap;
    transition: transform 0.3s ease;
 }
+.linear {
+  width: 100%;
+   display: flex;
+   flex-direction: row;
+
+}
 
 .arrow {
    cursor: pointer;
@@ -53,4 +63,13 @@
 
 .arrow:hover {
    color: #a61919;
+}
+
+.progressContainer{
+   width: 1200px;
+   height: 340px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
 }
