@@ -22,8 +22,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 // MUI IMPORTS
-import TextField from '@mui/material/TextField';
-
+import Container from '@mui/material/Container';
 
 function Home() {
 
@@ -42,7 +41,9 @@ function Home() {
   }, []);
  
   return (
-    <div>
+
+  
+    <div className={styles.container}>
         <DummyLauncher/>
         <Menu />
       

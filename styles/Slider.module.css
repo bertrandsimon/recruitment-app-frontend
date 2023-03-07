@@ -3,8 +3,9 @@
     justify-content: space-between;
     align-items: flex-end;
     padding: 40px;
-    width: 100%;
+    width: 100vw;
     max-width: 1700px;
+    /* width: 1700px; */
     height: 560px;
     background: url('/images/slider-bg-2.jpg');
     border-radius: 10px 10px 0px 0px;
