@@ -16,7 +16,11 @@ function JobCard(props) {
 
   
   const appliedJobs = useSelector((state) => state.applyReducer.value);
- 
+  const [likedJob, setLikedJob] = useState([]);
+  
+//  const [newColor, setNewColor]= useState("");
+ let newColor= "";
+
   console.log('appliedJobs', appliedJobs)
   const handleClick = (newState) => () => {
     setState({ open: true, ...newState });
@@ -34,6 +38,7 @@ function JobCard(props) {
   };
 
   const token = useSelector((state) => state.user.token);
+  console.log("token",token)
   //console.log('token is =', token)
   
   const handleApply = (token, id) => {
@@ -58,6 +63,62 @@ function JobCard(props) {
   };
 
   const isJobApplied = appliedJobs.includes(props._id);
+
+  const handleLikeJob = () => {
+    props.updateLikedJob(props.title);
+  };
+  let heartIconStyle = { 'cursor': 'pointer' };
+  if (props.isLiked) {
+    heartIconStyle = { 'color': '#e74c3c', 'cursor': 'pointer' };
+  }
+
+   // Liked JobCard (inverse data flow)
+   const updateLikedJob = () => {
+    console.log(token)
+    if (likedJob.find(job => job.title === props.title)) {
+      setLikedJob(likedJob.filter(job => job.title !== props.title));
+        fetch('http://localhost:3000/jobs/deleteLiked', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      idJob: props._id , token: token,
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.result) {
+      console.log('Le travail a été supprimé avec succès de la liste des travaux préférés');
+    } else {
+      console.log('Une erreur s\'est produite lors de la suppression du travail de la liste des travaux préférés');
+    }
+  })
+  .catch(error => {
+    console.error('Une erreur s\'est produite lors de la tentative de suppression du travail de la liste des travaux préférés:', error);
+  });
+    } else {
+      setLikedJob([...likedJob, props]);
+     
+      fetch('http://localhost:3000/jobs/liked',{
+      method: 'Post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({token: token, idJob: props._id})
+      
+    })
+    .then (response => response.json())
+    .then (data => console.log(data))
+    }
+    
+  };
+if (likedJob.find (job => job.title === props.title)){
+  newColor="#B00620"
+}else{
+  newColor=""
+}
+
+  
+  
   
   //console.log('props._id', props._id)
   //console.log('isJobApplied', isJobApplied)
@@ -67,7 +128,7 @@ function JobCard(props) {
     
       <div className={styles.headerWrapper}>
         <div onClick={handleClickOpen}><h5>{props.title}</h5></div>
-        <div className={styles.heart}><Tooltip title="Mettre en favori"><FontAwesomeIcon icon={faHeart} className="far" /></Tooltip></div>
+        <div className={styles.heart}><Tooltip title="Mettre en favori"><FontAwesomeIcon icon={faHeart} style={{color: newColor}}  onClick={()=> updateLikedJob()}/></Tooltip></div>
       </div>
 
       <div className={styles.subWrapper}>

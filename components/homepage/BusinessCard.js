@@ -138,6 +138,7 @@ function BusinessCard() {
           // overflowX: "hidden",
           width: "55%",
           display: "flex",
+          marginLeft: "40vh",
           
         }}
       >

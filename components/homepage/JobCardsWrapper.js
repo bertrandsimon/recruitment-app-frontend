@@ -1,6 +1,6 @@
 import styles from '../../styles/JobCardsWrapper.module.css';
 import JobCard from './JobCard';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+// import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { jobsCount } from '../../reducers/jobs';
 
 import { useState, useEffect } from 'react';
@@ -20,14 +20,14 @@ function JobCardsWrapper() {
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        const filteredDatas = data.alloffers.filter(job => job.title === jobSelectedInReducer);
+        const filteredDatas = data.allOffers.filter(job => job.title === jobSelectedInReducer);
         setJobsData(filteredDatas);
-        dispatch(jobsCount(data.alloffers.length))
+        dispatch(jobsCount(data.allOffers.length))
       });
   }, [jobSelectedInReducer]);
 
 
-
+console.log(jobsData)
   const jobCards = jobsData.map( (data,i) => {
     return <JobCard key={i} {...data} />
   })

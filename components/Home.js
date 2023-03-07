@@ -9,6 +9,7 @@ import Editorial  from './homepage/Editorial';
 import Banner  from './homepage/Banner';
 import EditorialWrapper from './homepage/EditorialWrapper';
 import JobCardsWrapper from './homepage/JobCardsWrapper';
+import Footer from './Footer';
 
 
 // STATES IMPORT
@@ -89,7 +90,8 @@ function Home() {
 
        
    
-         <BusinessCard />
+         {/* <BusinessCard /> */}
+         <Footer />
     </div>
   );
 }

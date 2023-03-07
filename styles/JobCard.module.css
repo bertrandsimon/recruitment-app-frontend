@@ -84,7 +84,8 @@
     font-size: 12px;
 }
 
-.heart{color: #C5B1A5;}
+.heart{
+  color: #C5B1A5;}
 
 .jobCardContainerModal{
     display: flex;
