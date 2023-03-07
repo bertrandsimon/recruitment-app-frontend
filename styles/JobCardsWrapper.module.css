@@ -2,9 +2,10 @@
     display: flex;
     width: 100%;
     max-width: 1700px;
-   
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap : 50px;
     background: url('/images/bg-jobs.jpg');
     background-repeat: no-repeat;
@@ -12,5 +13,16 @@
     background-position: 0px 150px;
 
     
+}
+
+.cardsContainer{
+    display: flex;
+    width: 100%;
+    max-width: 1700px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap : 50px;
+ 
+
 }
 
