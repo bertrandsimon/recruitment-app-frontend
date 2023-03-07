@@ -73,33 +73,35 @@ function JobCard(props) {
   return (
 
     <div className={styles.jobCardContainer}>
-    
-      <div className={styles.headerWrapper}>
-        <div onClick={handleClickOpen}><h5>{props.title}</h5></div>
-        <div className={styles.heart}><Tooltip title="Mettre en favori"><FontAwesomeIcon icon={faHeart} className="far" /></Tooltip></div>
-      </div>
 
-      <div className={styles.subWrapper}>
-        <div style={{ width: '100px', height: '100px', position: 'relative' }}>
-          <Image src={props.jobImage}  layout="fill"
-              objectFit="cover"
-              objectPosition="center" style={{ borderRadius: '6px' }}/>
+        <div>
+            <div className={styles.headerWrapper}>
+              <div onClick={handleClickOpen}><h5>{props.title}</h5></div>
+              <div className={styles.heart}><Tooltip title="Mettre en favori"><FontAwesomeIcon icon={faHeart} className="far" /></Tooltip></div>
+            </div>
+
+            <div className={styles.subWrapper}>
+              <div style={{ width: '100px', height: '100px', position: 'relative' }}>
+                <Image src={props.jobImage}  layout="fill"
+                    objectFit="cover"
+                    objectPosition="center" style={{ borderRadius: '6px' }}/>
+              </div>
+              <div className={styles.titleWrapper}>
+                <div><Tooltip title={props.store.postalCode + ' ' + props.store.storeName}><span>{props.store.storeName.substring(0, 5)}</span></Tooltip></div>
+                <div className={styles.line}> </div>
+                <div className={styles.tag}><Tooltip title={props.contract.type}><span>{props.contract.type.substring(0, 5)}</span></Tooltip></div>
+              </div>
+            </div>
         </div>
-        <div className={styles.titleWrapper}>
-          <div><span>Subtitle CP</span></div>
-          <div className={styles.line}> </div>
-          <div className={styles.tag}>CDI</div>
+
+        <div className={styles.textWrapper}>
+          <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
         </div>
-      </div>
 
-      <div className={styles.textWrapper}>
-        <span>{props.description && <p>{props.description.slice(0, 140)}{props.description.length > 140 ? '...' : ''}</p>}</span>
-        
-      </div>
-
-      <div>
-        <span className={styles.dateFrom}>posté : {daysAgo} jour{daysAgo === 1 ? '' : 's'}</span>
-      </div>
+        <div className={styles.bottomCtaWrapper}>
+          <div><span className={styles.dateFrom}>posté : {daysAgo} jour{daysAgo === 1 ? '' : 's'}</span></div>
+          <div className={styles.ctaWhiteSmall} onClick={handleClickOpen}> voir </div>
+        </div>
 
       <Dialog
         open={open}

@@ -14,7 +14,15 @@ const theme = createTheme({
       
     },
     
-  }
+  },
+  overrides: {
+    MuiTooltip: {
+      tooltip: {
+        fontSize: '14px', 
+        fontFamily: 'Poppins',
+      },
+    },
+  },
 });
 
 
