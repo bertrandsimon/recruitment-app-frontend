@@ -1,5 +1,6 @@
 .container{
-    padding: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     display: flex;
     align-items: flex-end;
     flex-direction: row;
@@ -74,8 +75,8 @@
 .connectionArea {
   display: flex;
   align-items: center;
-  padding: 16px;
-  height: 30px;
+  padding: 0px;
+  height: 40px;
   background: #FFFFFF;
   border: 1px solid #c3c0c0;
   border-radius: 20px;
@@ -83,6 +84,9 @@
   color: black;
   vertical-align: middle;  
   font-size: 12px;
+  justify-content: space-between;
+ 
+  gap: 20px;
 }
 
 .ctaLogout{

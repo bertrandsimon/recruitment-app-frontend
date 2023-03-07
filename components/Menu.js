@@ -19,11 +19,13 @@ import { useDispatch , useSelector } from 'react-redux';
 // REDUCERS
 import user from '../reducers/user';
 
+
 // MUI IMPORTS
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import Avatar from '@mui/material/Avatar';
 
 function Menu() {
   const userLoggedStatus = useSelector((state) => state.user.userConnected)
@@ -65,7 +67,7 @@ function Menu() {
 
     <div className={styles.container}>
 
-        <div className={styles.logo}><Image src="/images/gedimat-logo.png" alt="avatar" width={190} height={75} /></div>
+        <div className={styles.logo}><Image src="/images/gedimat-logo.png" width={190} height={75} /></div>
         
         <div className={styles.menuContainer}>
           {/* <div><h4>Opportunités</h4></div>
@@ -76,7 +78,8 @@ function Menu() {
           <div>  </div>
           {userLoggedStatus === false && <div className={styles.ctaWhite} onClick={handleClickOpen} ><span>Connection</span></div>}
           {userLoggedStatus === true && <div className={styles.connectionArea}>
-            <span>Connecté {username}</span>
+            <Avatar alt="Remy Sharp" src="/images/1.jpg" />
+            <span> Connecté : {username}</span>
 
             <Tooltip title="Se déconnecter">
               <IconButton>
