@@ -4,12 +4,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  margin-bottom: 40px;
 }
 
-.title {
-  font-family: "Mont";
-  font-size: 22px;
-  margin: 20px;
+.title{padding-top: 40px;}
+
+.email {
+  margin: 10px;
+  font-family: "Poppins";
+  font-size: 14px;
 }
 
+.password {
+  margin: 10px;
+  font-family: "Poppins";
+  font-size: 14px;
+}
+
+.connect {
+  margin: 10px;
+}
