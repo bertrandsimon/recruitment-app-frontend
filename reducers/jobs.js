@@ -4,7 +4,7 @@ const initialState = {
 	
 	jobs: 0,
 	searchedJobName: '',
-	tagSelected: 'Manutention',
+	tagSelected: 'allTags',
 };
 
 export const jobs = createSlice({
