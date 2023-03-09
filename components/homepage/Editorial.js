@@ -10,20 +10,20 @@ function Editorial(props) {
 
       <div className={styles.leftPanel}>
 
-        <span className={styles.subtitle}>subtitle</span>
+        
         <div className={styles.title}>
-          <h2>{props.editoTitle}</h2>
+          <h3>Bienvenue chez Gedimat</h3>
         </div>
 
         <div className={styles.authorWrapper}>
 
           <div className={styles.avatar}>
-          <Image src="/images/avatar.png" width={40} height={40} className={styles.arrow}/>
+          <Image src="/images/avatar.png" width={80} height={80} className={styles.arrow}/>
           </div>
 
           <div>
-            <h5>{props.editoTxt}</h5>
-            <span className={styles.subtitle}>subtitle</span>
+            <span>{props.editoTxt}</span>
+          
           </div>
 
         </div>

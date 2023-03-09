@@ -165,7 +165,7 @@ function Slider() {
         </div>
       
         <div className={styles.employeeTag}>
-          <span className={styles.employeeName}>Céline</span>
+          <span className={styles.employeeName}>Patrick</span>
           
           <span className={styles.employeeJob}>Resp. des matériaux</span>
         </div>

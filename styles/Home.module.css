@@ -87,5 +87,13 @@
 .topOffersContainer{
   position: relative;
 }
+.footerWrapper {
+  position: relative;
+  margin-top: -50px;
+}
 
+.careerWrapper {
+  position: relative;
+
+}
 

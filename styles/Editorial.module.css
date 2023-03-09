@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 780px;
     height: 283px;
     background: #FFFFFF;
@@ -12,7 +12,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 30px;
+    padding-left: 30px;
+    padding-right: 10px;
+    height: 100%;
+    width: 100%;
    }
 
    .subtitle{
@@ -22,6 +25,7 @@
    }
 
    .title {
+    margin-top: -40px;
     font-weight: 400;
    }
 

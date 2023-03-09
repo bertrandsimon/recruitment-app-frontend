@@ -9,7 +9,8 @@ import Banner  from './homepage/Banner';
 import EditorialWrapper from './homepage/EditorialWrapper';
 import JobCardsWrapper from './homepage/JobCardsWrapper';
 import Footer from './Footer';
-
+import FooterHomepage from './homepage/FooterHomepage';
+import CareersCards from './homepage/CareersCards';
 import DummyLauncher from './DummyLauncher';
 
 // STATES IMPORT
@@ -83,12 +84,16 @@ function Home() {
         <br /><br /><br /><br />
         <div id="scrollTo"></div>
   
-        
+         
 
-       
-   
-         {/* <BusinessCard /> */}
-         <Footer />
+          <div style={{ zIndex: 6 }} className={styles.careerWrapper} >
+            <CareersCards/>
+          </div>
+
+          <div style={{ zIndex: 5 }} className={styles.footerWrapper} >
+           <FooterHomepage />
+          </div>
+         
     </div>
   );
 }
