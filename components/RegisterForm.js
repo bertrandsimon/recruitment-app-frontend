@@ -3,7 +3,7 @@ import styles from '../styles/RegisterForm.module.css';
 
 // STATES IMPORT
 import { useState } from 'react';
-
+import { useSelector } from 'react-redux';
 
 // MUI IMPORTS
 import Button from '@mui/material/Button';
@@ -23,9 +23,12 @@ import InputLabel from '@mui/material/InputLabel';
 import Image from 'next/image';
 
 function RegisterForm() {
- 
+
+  const token = useSelector((state) => state.user.token);
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [description, setDescription] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -47,6 +50,28 @@ function RegisterForm() {
     setIsEmailValid(validateEmail(event.target.value));
   };
 
+  const handleSubmit = () => {
+    console.log(description)
+    console.log(education)
+    console.log(experience)
+    console.log(hobbies)
+    console.log(english)
+    console.log(spanish)
+    console.log(german)
+
+    fetch('http://localhost:3000/users/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token:token, profileDesc:description, educations:education, experiences:experience, hobbies:hobbies, englishLevel:english, spanishLevel:spanish, germanLevel:german }),
+    }).then(response => response.json())
+      .then(data => {
+        
+        console.log('inscription ok')
+        window.location.href = 'http://localhost:3001/'
+      });
+
+  }
+
   const isFormFilled = email;
 
   return (
@@ -57,17 +82,16 @@ function RegisterForm() {
           <Grid container spacing={2}>
 
             <Grid item xs={6}>
-              <TextField fullWidth id="outlined-basic" label="Téléphone" type="number" variant="outlined" onChange={(e) => setName(e.target.value)} />
+              <TextField fullWidth id="outlined-basic" label="Téléphone" type="number" variant="outlined" onChange={(e) => setPhone(e.target.value)} />
             </Grid>
 
             <Grid item xs={6}>
-              <TextField fullWidth id="outlined-basic" label="Date de naissance"  variant="outlined" onChange={(e) => setName(e.target.value)} />
+              <TextField fullWidth id="outlined-basic" label="Date de naissance"  variant="outlined" onChange={(e) => setBirthdate(e.target.value)} />
             </Grid>
 
             <Grid item xs={12}>
-              <TextField fullWidth id="outlined-basic" label="Une courte phrase pour vous décrire"  variant="outlined" onChange={(e) => setName(e.target.value)} />
+              <TextField fullWidth id="outlined-basic" label="Une courte phrase pour vous décrire"  variant="outlined" onChange={(e) => setDescription(e.target.value)} />
             </Grid>
-          
 
             <Grid item xs={12}>
                 <TextField
@@ -76,6 +100,7 @@ function RegisterForm() {
                     multiline
                     rows={8}
                     fullWidth
+                    onChange={(e) => setEducation(e.target.value)}
                   />
             </Grid>
 
@@ -86,11 +111,12 @@ function RegisterForm() {
                     multiline
                     rows={8}
                     fullWidth
+                    onChange={(e) => setExperience(e.target.value)}
                   />
             </Grid>
 
             <Grid item xs={12}>
-              <TextField fullWidth id="outlined-basic" label="Hobbies"  variant="outlined" onChange={(e) => setName(e.target.value)} />
+              <TextField fullWidth id="outlined-basic" label="Hobbies"  variant="outlined" onChange={(e) => setHobbies(e.target.value)} />
             </Grid>
             <Grid item xs={4}>
                 <FormControl fullWidth>
@@ -135,18 +161,18 @@ function RegisterForm() {
                 </FormControl>
             </Grid>
             <Grid item xs={12}>
-              <TextField fullWidth id="outlined-basic" label="Profil Linkedin"  variant="outlined" onChange={(e) => setName(e.target.value)} />
+              <TextField fullWidth id="outlined-basic" label="Profil Linkedin"  variant="outlined" onChange={(e) => setLinkedin(e.target.value)} />
             </Grid>
 
             <Grid item xs={12} className={styles.skills}>
-              <span>Choisissez 3 compétences qui vous caractérisent</span>
+              <span>Choisissez 3 compétences</span>
               <Image src="/images/skills.png" width={433} height={164} />
             </Grid>
 
             <Grid item xs={4}></Grid>
             <Grid item xs={4}>
                 <div className={styles.connect}>
-                    <Button sx={{ height: '99%' }} variant="contained" onClick={() => handleSubmit()} disabled={!isFormFilled}>Se Connecter</Button>
+                    <Button sx={{ height: '99%' }} variant="contained" onClick={() => handleSubmit()} >Je m'enregistre</Button>
                 </div>
             </Grid>
             <Grid item xs={4}></Grid>

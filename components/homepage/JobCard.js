@@ -147,7 +147,7 @@ if (likedJob.find (job => job.title === props.title)){
                     objectPosition="center" style={{ borderRadius: '6px' }}/>
               </div>
               <div className={styles.titleWrapper}>
-                <div><Tooltip title={props.store.postalCode + ' ' + props.store.storeName}><span>{props.store.storeName.substring(0, 5)}</span></Tooltip></div>
+                <div><Tooltip title={props.store.postalCode + ' ' + props.store.storeName}><span className={styles.titleShop}>{props.store.storeName.substring(0, 5)}</span></Tooltip></div>
                 <div className={styles.line}> </div>
                 <div className={styles.tag}><Tooltip title={props.contract.type}><span>{props.contract.type.substring(0, 5)}</span></Tooltip></div>
               </div>

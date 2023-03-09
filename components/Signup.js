@@ -11,7 +11,9 @@ import TextField from '@mui/material/TextField';
 
 // STYLES IMPORT
 import styles from '../styles/Signup.module.css';
-
+import RegisterForm from './RegisterForm';
+import StepperOne from './homepage/StepperOne';
+import StepperTwo from './homepage/StepperTwo';
 import { loggedStatus, loggedName, loggedSurname, loggedToken } from '../reducers/user'
 
 
@@ -26,7 +28,9 @@ function Signup() {
   const [password, setPassword] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
 
-  
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
+
+
   const handleSubmit = () => {
     fetch('http://localhost:3000/users/signup', {
       method: 'POST',
@@ -35,10 +39,11 @@ function Signup() {
     }).then(response => response.json())
       .then(data => {
         //console.log(data)
-    dispatch( loggedStatus ()) 
-    dispatch( loggedName (data.name))
-    dispatch( loggedSurname (data.surname))
-    dispatch( loggedToken (data.token)) ;
+      dispatch( loggedStatus ()) 
+      dispatch( loggedName (data.name))
+      dispatch( loggedSurname (data.surname))
+      dispatch( loggedToken (data.token)) ;
+      setShowRegisterForm(true)
       });
   };
 
@@ -60,33 +65,40 @@ function Signup() {
 
 
   return (
-  <div className={styles.container}>
+    <div className={styles.container}>
+    {showRegisterForm ? (
+      <>
+      <StepperTwo/>
+      <RegisterForm />
+      </>
+    ) : (
+      <>
+        <StepperOne/>
+        <div>
+          <h3 className={styles.title}>Je crée mon compte</h3>
+        </div>
 
-    <div>
-      <h3 className={styles.title}>Je crée mon compte</h3>
-    </div>
+        <div className={styles.email}>
+          <TextField id="outlined-basic" label="Nom" variant="outlined" onChange={(e) => setName(e.target.value)} />
+        </div>
 
-    <div className={styles.email}>
-      <TextField id="outlined-basic" label="Nom" variant="outlined" onChange={(e) => setName(e.target.value)} />
-    </div>
+        <div className={styles.email}>
+          <TextField id="outlined-basic" label="Prénom" variant="outlined" onChange={(e) => setSurname(e.target.value)} />
+        </div>
 
-    <div className={styles.email}>
-      <TextField id="outlined-basic" label="Prénom" variant="outlined" onChange={(e) => setSurname(e.target.value)} />
-    </div>
+        <div className={styles.email}>
+          <TextField label="Email" variant="outlined" value={email} onChange={handleEmailChange} error={!isEmailValid} helperText={!isEmailValid ? "Email non valide" : ""}/>
+        </div>
 
-    <div className={styles.email}>
-      <TextField label="Email" variant="outlined" value={email} onChange={handleEmailChange} error={!isEmailValid} helperText={!isEmailValid ? "Email non valide" : ""}/>
-    </div>
+        <div className={styles.password}>
+          <TextField id="outlined-basic" label="Mot de passe" variant="outlined" type="password" onChange={(e) => setPassword(e.target.value)}/>
+        </div>
 
-    <div className={styles.password}>
-      <TextField id="outlined-basic" label="Mot de passe" variant="outlined" type="password" onChange={(e) => setPassword(e.target.value)}/>
-    </div>
-
-    <div className={styles.register}>
-      <Button sx={{ height: '99%' }} variant="contained" onClick={() => handleSubmit()} disabled={!isFormFilled}>S'enregistrer</Button>
-    </div>
-
-
+        <div className={styles.register}>
+          <Button sx={{ height: '99%' }} variant="contained" onClick={() => handleSubmit()} disabled={!isFormFilled}>S'enregistrer</Button>
+        </div>
+      </>
+    )}
   </div>
    
   );

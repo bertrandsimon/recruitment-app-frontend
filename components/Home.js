@@ -27,8 +27,6 @@ import { faBookmark, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons
 // MUI IMPORTS
 import Container from '@mui/material/Container';
 
-import BusinessCard from './homepage/BusinessCard';
-
 
 function Home() {
 
@@ -50,7 +48,7 @@ function Home() {
 
   
     <div className={styles.container}>
-        <DummyLauncher/>
+      
         <Menu />
       
 
