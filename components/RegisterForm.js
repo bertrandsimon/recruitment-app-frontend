@@ -14,8 +14,13 @@ import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
 
-
+// IMAGE IMPORT
+import Image from 'next/image';
 
 function RegisterForm() {
  
@@ -23,8 +28,10 @@ function RegisterForm() {
   const [password, setPassword] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [name, setName] = useState('');
-
-   const [formation, setFormation] = useState('');
+  const [english, setEnglish] = useState('');
+  const [spanish, setSpanish] = useState('');
+  const [german, setGerman] = useState('');
+  const [formation, setFormation] = useState('');
 
   const handleFormationChange = (value) => {
     setFormation(value);
@@ -52,6 +59,9 @@ function RegisterForm() {
               <TextField fullWidth id="outlined-basic" label="Date de naissance"  variant="outlined" onChange={(e) => setName(e.target.value)} />
             </Grid>
 
+            <Grid item xs={12}>
+              <TextField fullWidth id="outlined-basic" label="Une courte phrase pour vous décrire"  variant="outlined" onChange={(e) => setName(e.target.value)} />
+            </Grid>
           
 
             <Grid item xs={12}>
@@ -76,6 +86,56 @@ function RegisterForm() {
 
             <Grid item xs={12}>
               <TextField fullWidth id="outlined-basic" label="Hobbies"  variant="outlined" onChange={(e) => setName(e.target.value)} />
+            </Grid>
+            <Grid item xs={4}>
+                <FormControl fullWidth>
+                    <InputLabel>Anglais</InputLabel>
+                    <Select
+                      value={english}
+                      label="English"
+                      onChange={(e) => setEnglish(e.target.value)}
+                    >
+                      <MenuItem value={10}>Débutant</MenuItem>
+                      <MenuItem value={50}>Moyen</MenuItem>
+                      <MenuItem value={100}>Bilingue</MenuItem>
+                    </Select>
+                </FormControl>
+            </Grid>
+            <Grid item xs={4}>
+            <FormControl fullWidth>
+                    <InputLabel>Espagnol</InputLabel>
+                    <Select
+                      value={spanish}
+                      label="Spanish"
+                      onChange={(e) => setSpanish(e.target.value)}
+                    >
+                      <MenuItem value={10}>Débutant</MenuItem>
+                      <MenuItem value={50}>Moyen</MenuItem>
+                      <MenuItem value={100}>Bilingue</MenuItem>
+                    </Select>
+                </FormControl>
+            </Grid>
+            <Grid item xs={4}>
+              <FormControl fullWidth>
+                    <InputLabel>Allemand</InputLabel>
+                    <Select
+                      value={german}
+                      label="German"
+                      onChange={(e) => setGerman(e.target.value)}
+                    >
+                      <MenuItem value={10}>Débutant</MenuItem>
+                      <MenuItem value={50}>Moyen</MenuItem>
+                      <MenuItem value={100}>Bilingue</MenuItem>
+                    </Select>
+                </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField fullWidth id="outlined-basic" label="Profil Linkedin"  variant="outlined" onChange={(e) => setName(e.target.value)} />
+            </Grid>
+
+            <Grid item xs={12} className={styles.skills}>
+              <span>Choisissez 3 compétences qui vous caractérisent</span>
+              <Image src="/images/skills.png" width={433} height={164} />
             </Grid>
 
             <Grid item xs={4}></Grid>

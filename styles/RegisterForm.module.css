@@ -5,3 +5,11 @@
 .connect {
   margin: 10px;
 }
+
+.skills{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}

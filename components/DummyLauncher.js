@@ -84,8 +84,8 @@ function DummyLauncher() {
         
         <DialogContent>
 
-        <SuperSkills/>
-          {/* <RegisterForm/> */}
+        {/* <SuperSkills/> */}
+          <RegisterForm/>
 
   
         </DialogContent>
