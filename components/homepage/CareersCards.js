@@ -19,7 +19,7 @@ function CareersCards() {
       <div className={styles.cardContainer}>
         <div className={styles.imgWrapper2}></div>
         <div className={styles.textWrapper}>
-          <span>Conseiller Libre Service</span>
+          <span>Conseiller libre Service</span>
         </div>
       </div>
 
@@ -33,14 +33,14 @@ function CareersCards() {
       <div className={styles.cardContainer}>
         <div className={styles.imgWrapper4}></div>
         <div className={styles.textWrapper}>
-          <span>Attaché Technique</span>
+          <span>Attaché technique</span>
         </div>
       </div>
 
       <div className={styles.cardContainer}>
         <div className={styles.imgWrapper5}></div>
         <div className={styles.textWrapper}>
-          <span>Magasinier Vendeur</span>
+          <span>Magasinier vendeur</span>
         </div>
       </div>
       

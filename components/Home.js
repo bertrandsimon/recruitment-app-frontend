@@ -85,6 +85,20 @@ function Home() {
         <div id="scrollTo"></div>
   
          
+        <div>
+
+          <div className={styles.containerTopOffers}>
+
+          <div className={styles.title2TopOffers}>
+              <span className={styles.subtitle1TopOffers}>Découvrez</span> 
+              <span className={styles.subtitle2TopOffers}> nos métiers</span>
+              <Image src="/images/arrow2.jpg" width={19} height={27} className={styles.arrowTopOffers}/>
+          </div>
+
+          </div>
+
+          </div>
+
 
           <div style={{ zIndex: 6 }} className={styles.careerWrapper} >
             <CareersCards/>
