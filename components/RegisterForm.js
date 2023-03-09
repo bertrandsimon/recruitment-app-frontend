@@ -28,10 +28,15 @@ function RegisterForm() {
   const [password, setPassword] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [birthdate, setBirthdate] = useState('');
+  const [education, setEducation] = useState('');
+  const [experience, setExperience] = useState('');
+  const [hobbies, setHobbies] = useState('');
   const [english, setEnglish] = useState('');
   const [spanish, setSpanish] = useState('');
   const [german, setGerman] = useState('');
-  const [formation, setFormation] = useState('');
+  const [linkedin, setLinkedin] = useState('');
 
   const handleFormationChange = (value) => {
     setFormation(value);

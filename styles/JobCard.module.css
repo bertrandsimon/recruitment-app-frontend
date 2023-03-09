@@ -9,8 +9,41 @@
     box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.08);
     border-radius: 6px;
     padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.jobCardContainer:hover{
+
+  background: linear-gradient(90deg, #A10410 6.25%, #C60501 100%);
+  box-shadow: 2px 2px 16px 1px rgba(0, 0, 0, 0.3);
+   
   
 }
+
+.titleShop{color: black;}
+
+.jobCardContainer:hover h5{
+
+  color:white
+  
+}
+
+.jobCardContainer:hover span {
+  color: white;
+}
+
+.jobCardContainer:hover > .titleWrapper > div > span {
+  color: white !important;
+}
+
+.jobCardContainer:hover > .titleWrapper > p  {
+  color: white !important;
+}
+.jobCardContainer:hover > div > div > .subWrapper > .titleWrapper > .tag {
+  color: black !important;
+}
+
 
 .headerWrapper{
     display: flex;
