@@ -67,7 +67,7 @@ function RegisterForm() {
       .then(data => {
         
         console.log('inscription ok')
-        window.location.href = 'http://localhost:3001/'
+        //window.location.href = 'http://localhost:3001/'
       });
 
   }
