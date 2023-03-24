@@ -36,7 +36,7 @@ function Slider() {
  
 
   useEffect(() => {
-    fetch('http://localhost:3000/jobs/inputData')
+    fetch('https://jobimat-backend-final.vercel.app/jobs/inputData')
       .then(response => response.json())
       .then(data => {
         setJobNames(data.postes);

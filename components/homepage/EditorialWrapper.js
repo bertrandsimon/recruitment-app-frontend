@@ -16,7 +16,7 @@ function EditorialWrapper(props) {
             <span className={styles.subtitle2}> nous rejoindre ?</span>
           </h2>
           <span>
-          ion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esseion ullamco laboris nisi ut aliquip ex ea commodo sequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          Si comme nous, vous avez à cœur d'accompagner nos clients dans des projets qui comptent pour eux, rejoignez-nous ! Découvrez nos dernières offres au sein de notre groupement.
           </span>
         </div>
        

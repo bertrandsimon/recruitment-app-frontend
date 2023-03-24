@@ -32,7 +32,7 @@ function Signup() {
 
 
   const handleSubmit = () => {
-    fetch('http://localhost:3000/users/signup', {
+    fetch('https://jobimat-backend-final.vercel.app/users/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password, surname, name }),

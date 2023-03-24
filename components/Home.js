@@ -35,7 +35,7 @@ function Home() {
 
 
   useEffect(() => {
-    fetch('http://localhost:3000/edito')
+    fetch('https://jobimat-backend-final.vercel.app/edito')
       .then(response => response.json())
       .then(data => {
         setEditoTitle(data.title)

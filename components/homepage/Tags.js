@@ -34,7 +34,7 @@ function Tags() {
     
     const countJobs = () => {
       let allTag = []
-      fetch('http://localhost:3000/jobs/byTypes', {
+      fetch('https://jobimat-backend-final.vercel.app/jobs/byTypes', {
       }).then(response => response.json())
         .then(data => {
           

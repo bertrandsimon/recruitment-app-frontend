@@ -59,7 +59,7 @@ function RegisterForm() {
     console.log(spanish)
     console.log(german)
 
-    fetch('http://localhost:3000/users/signup', {
+    fetch('https://jobimat-backend-final.vercel.app/users/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token:token, profileDesc:description, educations:education, experiences:experience, hobbies:hobbies, englishLevel:english, spanishLevel:spanish, germanLevel:german }),

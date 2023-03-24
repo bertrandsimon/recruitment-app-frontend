@@ -19,7 +19,7 @@ function JobCardsWrapper() {
   const jobSelectedInReducer = useSelector((state) => state.jobs.searchedJobName);
 
   useEffect(() => {
-    fetch('http://localhost:3000/jobs')
+    fetch('https://jobimat-backend-final.vercel.app/jobs')
       .then(response => response.json())
       .then(data => {
 

@@ -52,7 +52,7 @@ function JobCard(props) {
   
   const handleApply = (token, id) => {
    
-    fetch('http://localhost:3000/jobs/applied', {
+    fetch('https://jobimat-backend-final.vercel.app/applied', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token:token, idJob:id }),
@@ -84,7 +84,7 @@ function JobCard(props) {
     console.log(token)
     if (likedJob.find(job => job.title === props.title)) {
       setLikedJob(likedJob.filter(job => job.title !== props.title));
-        fetch('http://localhost:3000/jobs/deleteLiked', {
+        fetch('https://jobimat-backend-final.vercel.app/deleteLiked', {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ function JobCard(props) {
     } else {
       setLikedJob([...likedJob, props]);
      
-      fetch('http://localhost:3000/jobs/liked',{
+      fetch('https://jobimat-backend-final.vercel.app/jobs/liked',{
       method: 'Post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({token: token, idJob: props._id})

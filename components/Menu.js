@@ -72,7 +72,7 @@ function Menu() {
         <div className={styles.menuContainer}>
     
           <div>  </div>
-          {userLoggedStatus === false && <div className={styles.ctaWhite} onClick={handleClickOpen} ><span>Connection</span></div>}
+          {userLoggedStatus === false && <div className={styles.ctaWhite} onClick={handleClickOpen} ><span>Connexion</span></div>}
           {userLoggedStatus === true && <div className={styles.connectionArea}>
             <Avatar alt="Remy Sharp" src="/images/1.jpg" />
             <span> Connecté : {username}</span>
