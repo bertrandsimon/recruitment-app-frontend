@@ -22,7 +22,7 @@ function JobCard(props) {
 //  const [newColor, setNewColor]= useState("");
  let newColor= "";
 
-  console.log('appliedJobs', appliedJobs)
+  //console.log('appliedJobs', appliedJobs)
   const isConnected = useSelector((state) => state.user.userConnected);
 
 

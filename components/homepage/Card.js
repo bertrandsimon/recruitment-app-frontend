@@ -28,14 +28,14 @@ function Card(props) {
 
   const handleApply = (token, id) => {
    
-    fetch('http://localhost:3000/jobs/applied', {
+    fetch('https://jobimat-backend-final.vercel.app/jobs/applied', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token:token, idJob:id }),
     }).then(response => response.json())
       .then(data => {
 
-       dispatch(applyJob(id)); 
+        dispatch(applyJob(id)); 
         handleClose(); 
       })
       .catch(error => {
