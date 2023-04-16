@@ -33,6 +33,7 @@
   vertical-align: middle;
   cursor: pointer;
   font-size: 12px;
+  margin-right: 40px;
 }
 
 .ctaWhite:hover {
@@ -87,6 +88,7 @@
   justify-content: space-between;
  
   gap: 20px;
+  margin-right: 40px;
 }
 
 .ctaLogout{
@@ -98,4 +100,82 @@
 
 .ctaLogout:hover{
   color: #B00620;
+}
+.logo{ margin-left: 40px;}
+
+/* RESPONSIVE */
+
+/* MOBILE */
+@media (min-width: 480px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+  }
+
+  .menuContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .logo{ margin-left: 0px;}
+}
+.ctaWhite {
+  margin-top: 20px;
+  margin-right: 0px;
+}
+
+/* TABLETS */
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    
+  }
+
+  .menuContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 50px;
+  }
+
+  .logo{ margin-left: 40px;}
+}
+.ctaWhite {
+  margin-right: 40px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+  }
+
+  .menuContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+  }
+
+  .ctaWhite {
+    margin-right: 40px;
+  }
+  
 }
